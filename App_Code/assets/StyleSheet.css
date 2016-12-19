@@ -1,0 +1,149 @@
+﻿body {
+   
+}
+* {
+    margin:0px;
+}
+ a {
+        display: block;
+        color: white;
+        text-decoration: none;
+    }
+
+.header
+{
+    width:100%;
+    background: #222533;
+    height: 60px;
+    color: #FFFFFF;
+    
+}
+.logo 
+{
+    float:left;
+    width:340px;
+    padding:15px;
+    margin-left:80px;
+}
+.left 
+{
+     width: 520px;
+    float: left;
+}
+.right {
+    width: 175px;
+    float: right;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    top: 0;
+}
+li {
+    float: left;
+}
+
+    li a {
+        display: block;
+        color: white;
+        padding: 16px;
+        text-decoration: none;
+    }
+
+.banner {
+    height: 475px;
+    background:url(../images/hero1.jpg);
+    width: 100%;
+}
+.heading 
+{
+    text-align:center;
+    padding:50px;
+    height:15px;
+    color: #FFFFFF;
+}
+
+
+
+.bcolor {
+    background-color: #c9c9c9;
+    opacity: 0.8;
+    height: 85px;
+    margin-left: 369px;
+    width: 701px;
+    border-radius: 10px;
+}
+
+#ContentPlaceHolder1_searchlabel {
+    border-radius: 5px;  
+    height: 40px;
+    margin-left: 133px;
+    width: 350px;
+    margin-top: 20px;
+    border: 0px;
+}
+
+#ContentPlaceHolder1_searchbtn {
+    border-radius: 5px;
+    height: 40px;
+    margin-left: 10px;
+    width: 90px;
+    background: #001a33;
+    color: white;
+    border: 0px;
+}
+
+.categories > ul 
+{
+    margin-top: 75px;
+    margin-left: 45px;
+    overflow:visible;
+}
+    .categories > ul > li 
+    {
+        padding-left:20px;
+    }
+
+.content 
+{
+    width:100%;
+    height: 230px;
+  
+}
+.container {
+margin-left:100px;
+}
+    .container ul {
+        overflow:visible;
+        
+    }
+        .container ul li a {
+            color:black
+        }
+.user-container {
+  padding: 50px;
+  margin-left: 132px;
+
+}
+.userimage 
+{
+    float:left;
+}
+
+.user-navigation {
+    float:right;
+
+}
+.user-content {
+    margin-top:10px;
+}
+.franchiseinfo {
+    margin-left:100px;
+    background-color: #FFFFFF;
+    border-top: 4px solid #4b646f;
+    width: 805px;
+    height: auto;
+
+}

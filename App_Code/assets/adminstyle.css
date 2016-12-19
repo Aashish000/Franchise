@@ -1,0 +1,131 @@
+﻿body {
+    font: Helvectia-normal;
+}
+* {
+    margin: 0px;
+}
+ a {
+        display: block;
+        color: white;
+        text-decoration: none;
+    }
+ul 
+{
+    list-style-type: none;
+}
+ .right > ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    top: 0;
+}
+.right  li {
+    float: left;
+}
+
+    .right  li> a {
+        display: block;
+        color: white;
+        padding: 16px;
+        text-decoration: none;
+    }
+
+.header 
+{
+  background: #222533;
+  height: 60px;
+  color:white; 
+  width:100%;
+}
+.header .logo 
+{
+    float:left;
+    width:240px;
+    height:24px;
+    background:#0b3e56;
+    padding:18px;
+}
+.right 
+{
+  float:right;
+  width:260px;
+  padding:10px;
+}
+.sidebar 
+{
+    float:left;
+    width:240px;
+    color: #ffffff;
+    background:#222d32;
+    position:fixed;
+    min-height:395px;
+}
+.user-pannel 
+{
+    margin-top: 15px;
+    padding: 16px;
+    text-align: center;
+}
+
+.nav-header 
+{
+    padding: 5px;
+    background:#1a2226;
+    height:30px;
+    text-align:center;
+    color:#4b646f;
+}
+.navigation ul > li 
+{
+    margin:30px;
+}
+.content-wrapper 
+{
+    background:#ecf0f5;
+    width: 1126px;
+    margin-left: 240px;
+    position:fixed;
+    min-height:395px;
+}
+.content-header>h1 
+{
+    margin-top:20px;
+    text-align:center;
+    font-size:29px;
+    
+}
+.content 
+{
+    margin-left:100px;
+    background-color: #FFFFFF;
+    border-top: 4px solid #4b646f;
+    width: 805px;
+    height: auto;
+}
+.franchiseinfo 
+{
+
+}
+
+.login-box 
+{
+    margin: 7% auto;
+    width:360px;
+}
+    .login-box .logo 
+    {
+        width:240px;
+        height:24px;
+        background:#0b3e56;
+        padding:18px;
+        margin-left:34px;
+        margin-bottom:10px;
+    }
+.login-body 
+{
+    background: #fff;
+    padding: 20px;
+    min-height: 200px;
+    color: #666;
+}
