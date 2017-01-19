@@ -28,78 +28,81 @@
                 %>
     <div class="user-container">
          <div class ="user-header">
+             <h3>Welcome <small><%= name %></small>&nbsp </h3>
              <ul class="user-navigation">
                   
                    <li> <a href="franchiser.aspx" style="color:black">Dashboard</a></li>
-                    <li> <a href="franchise.aspx?id=<%=id %>" style="color:black">Activities</a></li>
+                    <li> <a href="franchise.aspx" style="color:black">Activities</a></li>
                       
                  <li> <a href="logout.aspx" style="color:black">Logout</a></li>
-
+                 
                 </ul>
            
         </div>
         <div class="apply">
-           <a href="editfranchiser.aspx?id=<%=id%>" style="color:white;background:blue">
+           <%--<a href="editfranchiser.aspx?id=<%=id%>" style="color:white;background:blue">--%>
+               <a href="editfranchiser.aspx" style="float:right">
                <img src="images/editicon.png" alt="Edit" height="40" width="40" /></a>
         </div>
+
           <div class="user-content">
+            
           <table class="auto-style1">
-               <tr>
+              
+              
+                <tr>
+                   
                     <th class="auto-style5" colspan="2">
                         <h2><%= name %></h2>
+                       
                         
                     </th>
                 </tr>
                 <tr>
-                    <th class="auto-style2"> Description</th>
+                    <th class="auto-style2"> Email</th>
                     <td class="auto-style2">
                        <%=email %>
                     </td>
                 </tr>
                 <tr>
-                    <th class="auto-style3">Email</th>
+                    <th class="auto-style3">Username</th>
                     <td class="auto-style3">
                     <%= username %>
                     </td>
                 </tr>
-                <tr>
-                    <th class="auto-style6">Established Date</th>
-                    <td class="auto-style6">
-                        <%= password %>
-                    </td>
-                </tr>
+              
                  <tr>
-                    <th class="auto-style2">Started Date</th>
+                    <th class="auto-style2">Address</th>
                     <td class="auto-style2">
                         <%= address %>
                     </td>
                 </tr>
                 <tr>
-                    <th class="auto-style9">Concept</th>
+                    <th class="auto-style9">Country</th>
                     <td class="auto-style9">
                         <%= country %>
                     </td>
                 </tr>
                 <tr>
-                    <th class="auto-style9">Investment Required</th>
+                    <th class="auto-style9">State</th>
                     <td class="auto-style9">
                         <%= state %>
                     </td>
                 </tr>
                 <tr>
-                    <th class="auto-style9">No of Units</th>
+                    <th class="auto-style9">City</th>
                     <td class="auto-style9">
                        <%= city %>
                     </td>
                 </tr>
               <tr>
-                    <th class="auto-style9">No of Units</th>
+                    <th class="auto-style9">Contact</th>
                     <td class="auto-style9">
                        <%= contact %>
                     </td>
                 </tr>
              <tr>
-                    <th class="auto-style9">No of Units</th>
+                    <th class="auto-style9">Occupation</th>
                     <td class="auto-style9">
                        <%= occupation %>
                     </td>

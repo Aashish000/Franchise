@@ -25,10 +25,10 @@ public partial class admin_AddFranchise : System.Web.UI.Page
             category.DataValueField = ("id");
             category.DataBind();
 
-            if (Request.QueryString["id"] != null)
+            if (Session["id"] != null)
             {
 
-                string data = "SELECT * FROM users where id=" + Request.QueryString["id"];
+                string data = "SELECT * FROM users where id=" + Session["id"];
                 SqlDataAdapter da = new SqlDataAdapter(data, db.con);
                 DataSet ds = new DataSet();
                 da.Fill(ds, "user123");

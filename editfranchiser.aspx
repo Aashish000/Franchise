@@ -1,34 +1,52 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="editfranchiser.aspx.cs" Inherits="editfranchiser" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    
+    <%
+                       dbConnection db = new dbConnection();
+                      
+                     if (Session["username"] != null)
+                    {                        
+                        string query = "select* from users where username ='" + Session["username"] + "'";
+                            db.cmd = new System.Data.SqlClient.SqlCommand(query, db.con);
+                            db.openConnection();
+                            db.dr = db.cmd.ExecuteReader();
+                                while (db.dr.Read())
+                                            {
+                                                string name = db.dr[1].ToString();
+                                                string email = db.dr[2].ToString();
+                                                string username = db.dr[3].ToString();
+                                                string password = db.dr[4].ToString();
+                                                string address = db.dr[6].ToString();
+                                                string country = db.dr[7].ToString();
+                                                string state = db.dr[8].ToString();
+                                                string city = db.dr[9].ToString();                                                                          
+                                                string contact = db.dr[10].ToString();
+                                                string occupation = db.dr[11].ToString();
+                                                int id = Convert.ToInt32(db.dr[0].ToString());
+                                                
+                %>
     <div class="user-container">
          <div class ="user-header">
              <ul class="user-navigation">
-                  <%
-                          dbConnection db = new dbConnection();
-                          string query = "select * from users";
-                          System.Data.SqlClient.SqlDataAdapter da = new System.Data.SqlClient.SqlDataAdapter(query, db.con);
-                          db.openConnection();
-                          System.Data.DataSet ds = new System.Data.DataSet();
-                          da.Fill(ds, "users");
-                          int id = Convert.ToInt16(Request.QueryString["id"]);   
-                   
-                      %>
-                   <li> <a href="franchiser.aspx?id=<%=id %>" style="color:black">Dashboard</a></li>
-                    <li> <a href="#" style="color:black">Activities</a></li>
-                    <li> <a href="logout.aspx" style="color:black">Logout</a></li>
+                  
+                   <li> <a href="franchiser.aspx" style="color:black">Dashboard</a></li>
+                    <li> <a href="franchise.aspx" style="color:black">Activities</a></li>
+                      
+                 <li> <a href="logout.aspx" style="color:black">Logout</a></li>
 
                 </ul>
-            <h2>Welcome Franchiser</h2><br/>
-         </div>
+           
+        </div>
          <div class="user-content">
-            <h3>Personal Details</h3>
+            <h3>Edit Profile</h3>
              <asp:Label ID="msg" runat="server" Text="Label"></asp:Label>
              <asp:Literal ID="ltrmsg" runat="server"></asp:Literal>
+            <div>
              <table class="auto-style1">
                <tr>
                     <th class="auto-style5">Franchiser Name</th>
-                    <td class="auto-style4">
+                    <td class="auto-style4">     
                         <asp:TextBox ID="name" runat="server"></asp:TextBox>
                     </td>
                 </tr>
@@ -38,24 +56,7 @@
                         <asp:TextBox ID="email" runat="server"></asp:TextBox>
                     </td>
                 </tr>
-                <tr>
-                    <th class="auto-style7">Username</th>
-                    <td class="auto-style8">
-                        <asp:TextBox ID="username" runat="server"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <th class="auto-style7">Password</th>
-                    <td class="auto-style8">
-                        <asp:TextBox ID="password" runat="server"></asp:TextBox>
-                    </td>
-                </tr>
-                 <tr>
-                    <th class="auto-style7">Confirm Password</th>
-                    <td class="auto-style8">
-                        <asp:TextBox ID="confirm_password" runat="server"></asp:TextBox>
-                    </td>
-                </tr>
+           
                 <tr>
                     <th class="auto-style7">Address</th>
                     <td class="auto-style8">
@@ -92,6 +93,40 @@
                         <asp:TextBox ID="occupation" runat="server"></asp:TextBox>
                     </td>
                 </tr>
+            </table>
+                <hr/>
+                 </div>
+             
+
+             <div>
+           
+             <table>
+                 
+             
+                <tr>
+                    <th class="auto-style7">Username</th>
+                    <td class="auto-style8">
+                        <asp:TextBox ID="username" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="auto-style7">Old Password</th>
+                    <td class="auto-style8">
+                        <asp:TextBox ID="oldpassword" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="auto-style7">New Password</th>
+                    <td class="auto-style8">
+                        <asp:TextBox ID="newpassword" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                 <tr>
+                    <th class="auto-style7">Confirm Password</th>
+                    <td class="auto-style8">
+                        <asp:TextBox ID="confirm_password" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
                 
                 <tr>
                     <th class="auto-style7">&nbsp;</th>
@@ -100,7 +135,13 @@
                     </td>
                 </tr>
             </table>
+                 </div>
          </div>
+            <%
+                                    }
+                                    db.closeConnection();
+                                    }                         
+         %>
     </div>
 
 

@@ -15,7 +15,7 @@
    
                    
                       %>
-                   <li> <a href="franchiser.aspx?id=<%=id %>" style="color:black">Dashboard</a></li>
+                   <li> <a href="franchiser.aspx" style="color:black">Dashboard</a></li>
                     <li> <a href="franchise.aspx?id=<%=id %>" style="color:black">Activities</a></li>
                     <li> <a href="logout.aspx" style="color:black">Logout</a></li>
 

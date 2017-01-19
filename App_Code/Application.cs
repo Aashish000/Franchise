@@ -39,5 +39,23 @@ public class Application
         da.Fill(ds, "franchise");
         return ds.Tables[0];
     }
+    public void deleteApplication(int id)
+    {
+        string query = "delete from application where id=" + id;
+        cmd = new SqlCommand(query, db.con);
+        cmd.Parameters.AddWithValue("@id", id);
+        db.openConnection();
+        cmd.ExecuteNonQuery();
+        db.closeConnection();
+
+    }
+    public DataTable showApplication()
+    {
+        string query = "select * from application";
+        db.da = new SqlDataAdapter(query, db.con);
+        db.ds = new DataSet();
+        db.da.Fill(db.ds, "application");
+        return db.ds.Tables[0];
+    }
   
 }

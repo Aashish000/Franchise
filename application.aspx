@@ -14,7 +14,7 @@
                           int id = Convert.ToInt16(Request.QueryString["id"]);   
                    
                       %>
-                   <li> <a href="franchiser.aspx?id=<%=id %>" style="color:black">Dashboard</a></li>
+                   <li> <a href="franchiser.aspx" style="color:black">Dashboard</a></li>
                     <li> <a href="franchise.aspx?id=<%=id %>" style="color:black">Activities</a></li>
                       
                  <li> <a href="logout.aspx" style="color:black">Logout</a></li>
@@ -22,12 +22,101 @@
                 </ul>
             <h2 style="float:left"> Applications&nbsp&nbsp </h2><br/>
         </div>
+          
         <div class="user-content">
-           
-       <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
-        <asp:Literal ID="ltrmsg" runat="server"></asp:Literal>
-           
-    </div>
+            <asp:label ID="msg" runat="server"></asp:label>
+
+            <table class="franchiseinfo">
+                <tr>
+                    <th>S.NO</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Country</th>
+                    <th>City</th>
+                    <th>Address</th>
+                    <th>Occupation</th>
+                    <th>Education Qualification</th>
+                    <asp:Label ID="no" runat="server" Text="Label"></asp:Label>
+
+                </tr>
+                <%
+                    
+                    db.closeConnection();
+                     if (Request.QueryString["id"] != null)
+                    {
+
+                        string data = "select * from application where fid='" + Request.QueryString["id"] + "'";
+                        db.cmd = new System.Data.SqlClient.SqlCommand(data, db.con);
+                        db.openConnection();
+                        db.dr = db.cmd.ExecuteReader();
+                        int count=1;
+                         if (db.dr == null || !db.dr.HasRows)
+                        {
+                            %>
+                            <tr><td>NO record for this category</td></tr>
+                        <%
+                        }
+                        else 
+                        {
+                        while (db.dr.Read())
+                        {
+                            int appid = int.Parse(db.dr["id"].ToString());
+                            aid.Text = appid.ToString();
+                            string name = db.dr[1].ToString();
+                            string email = db.dr[2].ToString();
+                            string country = db.dr[3].ToString();
+                            string city = db.dr[4].ToString();
+                            string address = db.dr[5].ToString();
+                            string occupation = db.dr[6].ToString();
+                            string education_qualification = db.dr[7].ToString();                  
+                            
+
+
+                            %>
+                        
+                        
+              
+                
+                    <tr>
+                       
+                        <td><%= count %>
+                   
+                            <asp:Label ID="aid" runat="server" Text="Label"></asp:Label>
+                            
+                
+                         
+                    </td>
+                    <td><%=  name %></td>
+                    <td><%= email %></td>
+                    <td><%= country %></td>
+                    <td><%= city %></td>
+                    <td><%= address %></td>
+                    <td><%= occupation %></td>
+                    <td><%= education_qualification %></td>
+                    <td>
+                        
+                       </td>
+
+                    <td>
+                        
+                         <asp:Button class="button" ID="Button1" runat="server" Text="Delete" OnClick="btnDelete_Click"  />
+                    </td>
+                </tr>
+               
+
+                <
+                <%                     
+                                count++;
+                        }
+                        }
+                        db.closeConnection();
+                        } %>
+            </table>
+
+
+
+        </div>
+
 </div>
 
 

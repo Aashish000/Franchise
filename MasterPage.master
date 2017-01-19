@@ -28,8 +28,16 @@
            </div>
            <div class="right">
               <ul>
-                  
-                 <li><a href="login.aspx">Login</a></li>
+                <% 
+                    if (Session["username"] != null)
+                     {
+                         %> <li><a href="franchiser.aspx" id="profile"><%= Session["username"] %></a></li>
+                     <%}
+                    else
+                    {
+               %>
+                 <li><a href="login.aspx" id="login">Login</a></li>
+                  <%} %>
                  <li><a href="registration.aspx">Register</a></li>
               </ul>
             </div>

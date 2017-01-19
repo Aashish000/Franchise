@@ -10,9 +10,11 @@ using System.Drawing;
 
 public partial class login : System.Web.UI.Page
 {
+    dbConnection db = new dbConnection(); 
     protected void Page_Load(object sender, EventArgs e)
     {
         msg.Visible = false;
+       
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
@@ -24,11 +26,12 @@ public partial class login : System.Web.UI.Page
                 {
                     foreach (DataRow rows in dt.Rows)
                     {
+                        
                         Session["username"] = username.Text;
                         Session["password"] = password.Text;
-                        
+                         
                             Response.Redirect("franchiser.aspx");
-                        
+                            Session["id"] = db.dt.Rows[0]; 
                     }
                 }
                 else

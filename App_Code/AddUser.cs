@@ -41,8 +41,8 @@ public class AddUser
 
     public void edituser(string name, string email, string username, string password, string confirm_password, string address, string country, string state, string city, int contact, string occupation,int id)
     {
-        query = "UPDATE users set name= '" + name + "', email='" + email + "', username='" + username + "',password='" + password + "', confirm_password='" + confirm_password + "',address='" + address + "',country='" + country + "',state='" + state + "',city='" + city + "',contact='" + contact + "',occupation='" + occupation + "'WHERE id=" + id;
-        cmd = new SqlCommand(query, db.con);
+        string query = "UPDATE users set name= '" + name + "', email='" + email + "', username='" + username + "',password='" + password + "', confirm_password='" + confirm_password + "',address='" + address + "',country='" + country + "',state='" + state + "',city='" + city + "',contact='" + contact + "',occupation='" + occupation + "'where id =" + id;
+        SqlCommand  cmd = new SqlCommand(query, db.con);
         db.openConnection();
         cmd.ExecuteNonQuery();
         db.closeConnection();

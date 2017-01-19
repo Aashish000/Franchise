@@ -1,15 +1,35 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="login.aspx.cs" Inherits="login" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    
-  
-    <div class="franchiser-login">
-      <h1>Franchisers Login</h1> 
+<!DOCTYPE html>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+        }
+        .auto-style2 {
+            text-align: left;
+        }
+        .auto-style3 {
+            width: 136px;
+        }
+        .auto-style4 {
+            width: 142px;
+        }
+    </style>
+ 
+    <div class="login-box">
+        <div class="logo">
+            <a href="index.aspx"> <h2 style="text-align:center">Franchiser Login </h2> </a>
+        </div>
+        <div class="login-body">
+            
             <table class="auto-style1">
                 <asp:Label ID="msg" runat="server" Text="Label"></asp:Label>
                 <asp:Literal ID="ltrmsg" runat="server"></asp:Literal>
                 <tr>
+
                     <td class="auto-style2">
+                       
                         <br />
                         Username:
                         <br />
@@ -39,9 +59,6 @@
                         <br />
                     </td>
                 </tr>
-                
-               
-                
                 <tr>
                     <td class="auto-style2" colspan="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Button ID="Button1" runat="server" style="text-align: center" Text="Login" Width="80px" OnClick="Button1_Click" />
@@ -50,6 +67,9 @@
             </table>
 
         </div>
+    </div>
+
+
 
   
       

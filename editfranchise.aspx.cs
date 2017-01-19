@@ -28,8 +28,8 @@ public partial class admin_editfranchise : System.Web.UI.Page
 
             if (Request.QueryString["id"] != null)
             {
-               
-                string data = "SELECT * FROM franchise WHERE id=" + Request.QueryString["id"];
+
+                string data = "select * from franchise where id='" + Request.QueryString["id"] + "'";
                 SqlDataAdapter da = new SqlDataAdapter(data, db.con);
                 DataSet ds = new DataSet();
                 da.Fill(ds, "franchise");
@@ -52,6 +52,15 @@ public partial class admin_editfranchise : System.Web.UI.Page
 
 
  
+
+            }
+            if (Session["username"] == null)
+            {
+                Response.Redirect("login.aspx");
+
+            }
+            else
+            {
 
             }
         }
@@ -105,4 +114,5 @@ public partial class admin_editfranchise : System.Web.UI.Page
 
         }
     }
+
 }

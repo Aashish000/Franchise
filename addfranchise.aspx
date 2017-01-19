@@ -25,7 +25,7 @@
             <tr>
                 <td class="auto-style12">Description</td>
                 <td class="auto-style10">
-                    <asp:TextBox ID="description" runat="server" Width="195px"></asp:TextBox>
+                    <asp:TextBox ID="description" runat="server" Width="195px" TextMode="MultiLine"></asp:TextBox>
                 </td>
                 <td class="auto-style9">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="description" ErrorMessage="Description required" ForeColor="Red"></asp:RequiredFieldValidator>
