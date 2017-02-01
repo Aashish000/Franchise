@@ -10,9 +10,10 @@ using System.Text;
 using System.Drawing;
 public partial class admin_Default : System.Web.UI.Page
 {
+    dbConnection db = new dbConnection();
     protected void Page_Load(object sender, EventArgs e)
     {
-        dbConnection db = new dbConnection();
+       
         if (!Page.IsPostBack)
         {
             no.Visible = false;
@@ -32,34 +33,58 @@ public partial class admin_Default : System.Web.UI.Page
                                             }
                             db.closeConnection();
                             }
+                            else
+                            {
+                                Response.Redirect("login.aspx");
+                            }
                             db.openConnection();
                             db.dr = db.cmd.ExecuteReader();
                             while (db.dr.Read())
                             {
-
+                                Session["id"] = db.dr[0];
                                 fid.Text = db.dr["id"].ToString();
                             }
+                            db.closeConnection();
+
+            //for delete  
+                            if (Request.QueryString["id"] != null)
+                            {
+                                int id = int.Parse(Request.QueryString["id"]);
+                                string data1 = "select * from application where fid='" + id + "'";
+                                db.da = new SqlDataAdapter(data1, db.con);
+                                db.ds = new DataSet();
+                                db.da.Fill(db.ds, "application");
+                                if (db.ds.Tables[0].Rows.Count > 0)
+                                {
+                                    msg.Visible = true;
+                                    msg.Text = "Cannot Delete";
+
+                                }
+                                string data = "select * from investment_details where fid='" + id + "'";
+                                db.da = new SqlDataAdapter(data, db.con);
+                                db.ds = new DataSet();
+                                db.da.Fill(db.ds, "franchise");
+                                if (db.ds.Tables[0].Rows.Count > 0)
+                                {
+                                    msg.Visible = true;
+                                    msg.Text = "Cannot Delete";
+
+                                }
+                               
+                                else
+                                {
+                                    string query = "DELETE FROM franchise WHERE id=" + Request.QueryString["id"];
+                                    SqlCommand cmd = new SqlCommand(query, db.con);
+                                    db.openConnection();
+                                    cmd.ExecuteNonQuery();
+                                    msg.Visible = true;
+                                    msg.Text = "Record Deleted";
+                                }
+                            }
+
         }
-            if (Session["username"] == null)
-            {
-                Response.Redirect("login.aspx");
-
-            }
-            else
-            {
-
-            }
+       
+           
     }
-    protected void btnDelete_Click(object sender, EventArgs e)
-    {
 
-        AddFranchise franchise = new AddFranchise();
-        franchise.deleteFranchise(Convert.ToInt32(fid.Text));
-        msg.Visible = true;
-        msg.Text = "Data deleted";
-        msg.ForeColor = Color.Green;
-
-    }
-    
-   
 }

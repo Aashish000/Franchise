@@ -6,7 +6,9 @@
                        dbConnection db = new dbConnection();
                       
                      if (Session["username"] != null)
-                    {                        
+                    {   
+                         if(Session["role"] == "franchiser")  
+                         {                   
                         string query = "select* from users where username ='" + Session["username"] + "'";
                             db.cmd = new System.Data.SqlClient.SqlCommand(query, db.con);
                             db.openConnection();
@@ -26,20 +28,22 @@
                                                 int id = Convert.ToInt32(db.dr[0].ToString());
                                                 
                 %>
-    <div class="user-container">
+     <div class="user-container">
          <div class ="user-header">
-             <ul class="user-navigation">
-                  
-                   <li> <a href="franchiser.aspx" style="color:black">Dashboard</a></li>
-                    <li> <a href="franchise.aspx" style="color:black">Activities</a></li>
+            
+             <h3 style="padding: 9px"> </h3>
+         </div>
+         
+          <div class="user-navigation">
+                 <ul>            
+                        <li> <a href="franchiser.aspx">Dashboard</a></li>
+                        <li> <a href="franchise.aspx">Activities</a></li>
                       
-                 <li> <a href="logout.aspx" style="color:black">Logout</a></li>
-
-                </ul>
-           
-        </div>
+                        <li> <a href="logout.aspx" style="color:#FFFFFF">Logout</a></li>
+                  </ul>
+                </div>
          <div class="user-content">
-            <h3>Edit Profile</h3>
+          
              <asp:Label ID="msg" runat="server" Text="Label"></asp:Label>
              <asp:Literal ID="ltrmsg" runat="server"></asp:Literal>
             <div>
@@ -97,9 +101,6 @@
                 <hr/>
                  </div>
              
-
-             <div>
-           
              <table>
                  
              
@@ -135,12 +136,13 @@
                     </td>
                 </tr>
             </table>
-                 </div>
+                
          </div>
             <%
                                     }
                                     db.closeConnection();
-                                    }                         
+                                    }   
+                                    }                      
          %>
     </div>
 

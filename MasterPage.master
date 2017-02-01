@@ -31,8 +31,15 @@
                 <% 
                     if (Session["username"] != null)
                      {
-                         %> <li><a href="franchiser.aspx" id="profile"><%= Session["username"] %></a></li>
+                        if(Session["role"]=="franchiser")
+                        {
+                         %> <li><a href="franchiser.aspx" id="franchiser-profile"><%= Session["username"] %></a></li>
                      <%}
+                        else if (Session["role"] == "investor")
+                        { 
+                          %> <li><a href="investor.aspx" id="investor-profile"><%= Session["username"] %></a></li>
+                        <%}
+                     }
                     else
                     {
                %>

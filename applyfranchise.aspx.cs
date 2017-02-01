@@ -40,8 +40,8 @@ public partial class applyfranchise : System.Web.UI.Page
     protected void Button1_Click(object sender, EventArgs e)
     {
         Application app = new Application();
-        
-        app.applyFranchise(name.Text, email.Text, country.Text, city.Text, address.Text, occupation.Text, education_qualification.Text,int.Parse(franchiseid.Text));
+
+        app.applyFranchise(name.Text, email.Text, country.Text, city.Text, address.Text, occupation.Text, education_qualification.Text, int.Parse(franchiseid.Text), int.Parse(userid.Text));
         msg.Visible = true;
         msg.Text = "Application Submitted successfully";
         msg.ForeColor = Color.Green;

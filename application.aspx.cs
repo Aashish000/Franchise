@@ -17,6 +17,19 @@ public partial class application : System.Web.UI.Page
         if (!Page.IsPostBack)
         {
             no.Visible = false;
+            if (Session["username"] != null)
+            {
+                string query = "select* from users where username ='" + Session["username"] + "'";
+                db.cmd = new System.Data.SqlClient.SqlCommand(query, db.con);
+                db.openConnection();
+                db.dr = db.cmd.ExecuteReader();
+                while (db.dr.Read())
+                {
+                    string id = db.dr[0].ToString();
+                    user_id.Text = id;
+                }
+                db.closeConnection();
+            }
             if (Request.QueryString["id"] != null)
             {
 

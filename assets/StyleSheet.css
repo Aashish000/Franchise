@@ -116,7 +116,6 @@ li {
     color: white;
     border: 0px;
 }
-
 .categories > ul 
 {
     margin-top: 75px;
@@ -139,15 +138,21 @@ li {
                 color: #EEA200;
                 height:100px;
                
-            } 
+            }
+.content-logo {
+    width: 225px;
+    padding: 25px;
+    margin-left: 80px;
+    float: left;
+}
 
 .content 
 {
-    width:100%;
+   width:100%;
     position:absolute;
     background:#f1f2f2;
-    
 }
+
 .container {
     margin-left: 75px;
     margin-top: 40px;
@@ -169,7 +174,7 @@ li {
             color:black;
             background:white;
             margin-left:11px;
-            box-shadow: 5px 5px 5px #888888;
+            box-shadow: 5px 5px 20px #888888;
                 
         }
 
@@ -180,6 +185,11 @@ li {
     margin-left: 23px;
 
 }
+.latest-franchises > a 
+{
+    border-bottom:4px solid #0b3e56;
+}
+  
 .latest-franchises:hover 
 {
     opacity:1;
@@ -217,8 +227,31 @@ li {
 
 .user-container {
   padding: 50px;
-  margin-left: 132px;
+  margin-left: 85px;
 
+}
+.info 
+{
+        margin-top: 75px;
+    float: left;
+    margin-left: 45px;
+    width: 620px;
+    background: white;
+}
+#btn 
+{
+    background: transparent;
+    outline: 0;
+    height: 50px;
+}
+.user-header 
+{
+    width: 175px;
+    height: 50px;
+    background: #222533;
+    border: 1px solid #9e4b00;
+    color: white;
+    float:left;
 }
 .userimage 
 {
@@ -226,11 +259,15 @@ li {
 }
 
 .user-navigation {
-    float:right;
-
+    float: right;
+    background: #252525;
+    color: whitesmoke;
+    margin-right:45px;
 }
 .user-content {
-    margin-top:10px;
+    width: 1117px;
+    background: white;
+    margin-top: 65px;
 }
 .franchiseinfo {
     margin-left:100px;
@@ -238,17 +275,23 @@ li {
     border-top: 4px solid #4b646f;
     width: 805px;
     height: auto;
+    margin-top:30px;
+}
+    .franchiseinfo tr 
+    {
+        border: 1px solid black;
+    } 
+ .franchiseinfo tr td {
+        border: 2px solid #222533;
+    padding-left: 0px;
+   }
 
-}
-.info 
-{
-    margin-top:73px;
-    margin-left:60px;
-}
 .apply 
-{
-    margin-right:140px;
-    margin-top:100px;
+{   
+    margin-right: 80px;
+    margin-top: 73px;
+    float: right;
+    background-color: #f26721;
 }
 .login-box 
 {

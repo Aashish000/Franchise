@@ -19,9 +19,9 @@ public partial class login : System.Web.UI.Page
     protected void Button1_Click(object sender, EventArgs e)
     {
         msg.Visible = true;
-        try{
+        //try{
                 UserLogin ul = new UserLogin();
-                DataTable dt = ul.CheckUsers(username.Text, password.Text);
+                DataTable dt = ul.CheckUsers(username.Text, password.Text,role.Text);
                 if (dt.Rows.Count > 0)
                 {
                     foreach (DataRow rows in dt.Rows)
@@ -29,9 +29,18 @@ public partial class login : System.Web.UI.Page
                         
                         Session["username"] = username.Text;
                         Session["password"] = password.Text;
-                         
+                        Session["role"] = role.Text;
+                        
+                        if (role.SelectedItem.Value == "franchiser")
+                        {
+                            
                             Response.Redirect("franchiser.aspx");
-                            Session["id"] = db.dt.Rows[0]; 
+                            Session["id"] = db.dt.Rows[0];
+                        }
+                        else if (role.SelectedItem.Value == "investor")
+                        {
+                            Response.Redirect("index.aspx");
+                        }
                     }
                 }
                 else
@@ -40,12 +49,12 @@ public partial class login : System.Web.UI.Page
                     msg.ForeColor = Color.Red;
                 }
            }
-        catch (Exception ex)
-        {
-            ltrmsg.Text = ex.Message;
+        //catch (Exception ex)
+        //{
+        //    ltrmsg.Text = ex.Message;
 
-        }
-    }
+        //}
+    //}
 
     
 }

@@ -2,9 +2,11 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="user-container">
-         <div class ="user-header">
-             <ul class="user-navigation">
+        
+             <div class="user-navigation">
                   <%
+                   if(Session["role"]== "franchiser")    
+                   { 
                           dbConnection db = new dbConnection();
                           string query = "select * from users";
                           System.Data.SqlClient.SqlDataAdapter da = new System.Data.SqlClient.SqlDataAdapter(query, db.con);
@@ -15,18 +17,24 @@
    
                    
                       %>
-                   <li> <a href="franchiser.aspx" style="color:black">Dashboard</a></li>
-                    <li> <a href="franchise.aspx?id=<%=id %>" style="color:black">Activities</a></li>
-                    <li> <a href="logout.aspx" style="color:black">Logout</a></li>
+                 <ul>
+                    <li> <a href="franchiser.aspx">Dashboard</a></li>
+                    <li> <a href="franchise.aspx">Activities</a></li>
+                    <li> <a href="logout.aspx">Logout</a></li>
+                 </ul>
+                    
 
-                </ul>
-            <h2>Welcome Franchiser</h2><br/>
-         </div>
+                </div>
+       <div class="user-header">   
+             <h2 style="float:left"> Edit Franchises&nbsp&nbsp </h2>
+       </div>
     <div class="user-content">
         <asp:Label ID="msg" runat="server" Text="Label"></asp:Label>
         <asp:Literal ID="ltrmsg" runat="server"></asp:Literal>
         <table class="auto-style1">
             <tr>
+                <asp:TextBox ID="user_id" runat="server"></asp:TextBox>
+                <asp:TextBox ID="uid" runat="server"></asp:TextBox>
                 <td class="auto-style11">
                     <br />
                     Franchise Name:</td>
@@ -42,7 +50,7 @@
             <tr>
                 <td class="auto-style12">Description</td>
                 <td class="auto-style10">
-                    <asp:TextBox ID="description" runat="server" Width="195px"></asp:TextBox>
+                    <asp:TextBox ID="description" runat="server" Width="195px" TextMode="MultiLine"></asp:TextBox>
                 </td>
                 <td class="auto-style9">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="description" ErrorMessage="Description required" ForeColor="Red"></asp:RequiredFieldValidator>
@@ -65,8 +73,7 @@
                     <asp:Label ID="lbllogo" runat="server" Text="Label"></asp:Label>
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="logo" ErrorMessage="Logo required " ForeColor="Red"></asp:RequiredFieldValidator>
-                </td>
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style13">Established Date</td>
@@ -135,6 +142,7 @@
          <asp:HiddenField ID="imagepath" runat="server" />
 
         </div>
+    <%} %>
 </asp:Content>
 
 <asp:Content ID="Content2" runat="server" contentplaceholderid="head">

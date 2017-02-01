@@ -56,17 +56,16 @@ public class AddFranchise
         return ds.Tables[0];
     }
 
-    public void deleteFranchise(int id)
-    {
-        string query = "delete from franchise where id=" + id;
-        cmd = new SqlCommand(query, db.con);
-        cmd.Parameters.AddWithValue("@id", id);
-        db.openConnection();
-        cmd.ExecuteNonQuery();
-        db.closeConnection();
+   public void deleteFranchise(int id)
+   {
+      string query = "delete from franchise where id=" + id;
+      cmd = new SqlCommand(query, db.con);
+      cmd.Parameters.AddWithValue("@id", id);
+      db.openConnection();
+      cmd.ExecuteNonQuery();
+      db.closeConnection();
 
-    }
-
+        }
     public DataTable showCategory()
     {
         string query = "select * from categories";

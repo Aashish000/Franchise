@@ -25,20 +25,23 @@ public partial class admin_AddFranchise : System.Web.UI.Page
             category.DataValueField = ("id");
             category.DataBind();
 
-            if (Session["id"] != null)
+
+            if (Session["username"] != null)
             {
+                if (Session["role"] == "franchiser")
+                {
+                    string query = "select* from users where username ='" + Session["username"] + "'";
+                    SqlDataAdapter da = new SqlDataAdapter(query, db.con);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds, "user123");
+                    DataTable dt = ds.Tables[0];
+                    DataRow dr = dt.Rows[0];
 
-                string data = "SELECT * FROM users where id=" + Session["id"];
-                SqlDataAdapter da = new SqlDataAdapter(data, db.con);
-                DataSet ds = new DataSet();
-                da.Fill(ds, "user123");
-                DataTable dt = ds.Tables[0];
-                DataRow dr = dt.Rows[0];
-
-                userid.Text = dr["id"].ToString();
+                    userid.Text = dr["id"].ToString();
+                }
             }
+
         }
-        
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
@@ -54,8 +57,9 @@ public partial class admin_AddFranchise : System.Web.UI.Page
                 int catid = Convert.ToInt32(category.Text);
                 createfranchise.addFranchises(franchise_name.Text, description.Text, email.Text, logo.FileName, established_date.Text, started_date.Text, concept.Text, int.Parse(investment_required.Text), int.Parse(no_of_units.Text), int.Parse(userid.Text), catid);
                 msg.Visible = true;
-                msg.Text = "Franchise Added successfully";
+                msg.Text = "Franchise Added successfully Please add investment details ";
                 msg.ForeColor = Color.Green;
+              
             }
             else
             {

@@ -19,7 +19,7 @@
  
     <div class="login-box">
         <div class="logo">
-            <a href="index.aspx"> <h2 style="text-align:center">Franchiser Login </h2> </a>
+            <a href="index.aspx"> <h2 style="text-align:center"> Login </h2> </a>
         </div>
         <div class="login-body">
             
@@ -58,6 +58,19 @@
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="password" ErrorMessage="Password required" Font-Size="Smaller" ForeColor="Red"></asp:RequiredFieldValidator>
                         <br />
                     </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">
+                        Login As</td>
+                    <td class="auto-style3">
+                        <asp:DropDownList ID="role" class="TextBox" runat="server">
+                            <asp:ListItem Value="franchiser">Franchiser</asp:ListItem>
+                            <asp:ListItem Value="investor">Investor</asp:ListItem>
+                        </asp:DropDownList>
+                        <br />
+                    </td>
+                    <td class="auto-style4">
+                        &nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style2" colspan="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

@@ -14,18 +14,33 @@ public partial class admin_categories : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        dbConnection db = new dbConnection();
+
         if (!Page.IsPostBack)
         {
             msg.Visible = false;
             if (Request.QueryString["id"] != null)
             {
-                dbConnection db = new dbConnection();
-                string query = "DELETE FROM categories WHERE id=" + Request.QueryString["id"];
-                SqlCommand cmd = new SqlCommand(query, db.con);
-                db.openConnection();
-                cmd.ExecuteNonQuery();
-                msg.Visible = true;
-                msg.Text = "Record Deleted";
+                int id = int.Parse(Request.QueryString["id"]);
+                string query1 = "select * from franchise where catid="+Request.QueryString["id"];
+                db.da = new SqlDataAdapter(query1, db.con);
+                db.ds = new DataSet();
+                db.da.Fill(db.ds, "franchise");
+                if (db.ds.Tables[0].Rows.Count > 0)
+                {
+                    msg.Visible = true;
+                    msg.Text = "Cannot Delete";
+
+                }
+                else
+                {
+                    string query = "DELETE FROM categories WHERE id=" + Request.QueryString["id"];
+                    SqlCommand cmd = new SqlCommand(query, db.con);
+                    db.openConnection();
+                    cmd.ExecuteNonQuery();
+                    msg.Visible = true;
+                    msg.Text = "Record Deleted";
+                }
 
             }
             int counter = 0;

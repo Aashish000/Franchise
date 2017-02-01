@@ -3,8 +3,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
       <div class="user-container">
          <div class ="user-header">
-             <ul class="user-navigation">
+            <h2 style="float:left"> Applications&nbsp&nbsp </h2><br/>
+      </div>
+             <div class="user-navigation">
                   <%
+                      if (Session["role"] == "franchiser")
+                      {
                           dbConnection db = new dbConnection();
                           string query = "select * from users";
                           System.Data.SqlClient.SqlDataAdapter da = new System.Data.SqlClient.SqlDataAdapter(query, db.con);
@@ -14,18 +18,20 @@
                           int id = Convert.ToInt16(Request.QueryString["id"]);   
                    
                       %>
-                   <li> <a href="franchiser.aspx" style="color:black">Dashboard</a></li>
-                    <li> <a href="franchise.aspx?id=<%=id %>" style="color:black">Activities</a></li>
+                 <ul>
+                   <li> <a href="franchiser.aspx">Dashboard</a></li>
+                    <li> <a href="franchise.aspx">Activities</a></li>
                       
-                 <li> <a href="logout.aspx" style="color:black">Logout</a></li>
-
+                 <li> <a href="logout.aspx">Logout</a></li>
                 </ul>
-            <h2 style="float:left"> Applications&nbsp&nbsp </h2><br/>
-        </div>
+                </div>
+            
+        
           
         <div class="user-content">
             <asp:label ID="msg" runat="server"></asp:label>
-
+             <asp:TextBox ID="user_id" runat="server"></asp:TextBox>
+             <asp:TextBox ID="uid" runat="server"></asp:TextBox>
             <table class="franchiseinfo">
                 <tr>
                     <th>S.NO</th>
@@ -44,7 +50,7 @@
                     db.closeConnection();
                      if (Request.QueryString["id"] != null)
                     {
-
+                          
                         string data = "select * from application where fid='" + Request.QueryString["id"] + "'";
                         db.cmd = new System.Data.SqlClient.SqlCommand(data, db.con);
                         db.openConnection();
@@ -104,13 +110,15 @@
                 </tr>
                
 
-                <
+                
                 <%                     
                                 count++;
                         }
                         }
                         db.closeConnection();
-                        } %>
+                        } 
+                        }
+                        %>
             </table>
 
 

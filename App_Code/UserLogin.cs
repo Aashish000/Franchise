@@ -13,9 +13,9 @@ public class UserLogin
     dbConnection db = new dbConnection();
     SqlCommand cmd; 
 
-    public DataTable CheckUsers(string username, string password)
+    public DataTable CheckUsers(string username, string password, string role)
     {
-        string query = "select * from users where username='" + username + "' and password='" + password + "'";
+        string query = "select * from users where username='"+username+"' and password='"+password+"' and role='"+role+"'";
         SqlDataAdapter da = new SqlDataAdapter(query, db.con);
         DataSet ds = new DataSet();
         da.Fill(ds, "franchiers");

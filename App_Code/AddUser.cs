@@ -14,12 +14,12 @@ public class AddUser
     dbConnection db = new dbConnection();
     string query;
     SqlCommand cmd;
-    public void createUser( string name, string email, string username, string password, string confirm_password, string address, string country, string state, string city, int contact, string occupation)
+    public void createUser( string name, string email, string username, string password, string confirm_password, string address, string country, string state, string city, int contact, string occupation, string role)
     {
         
         string query;
         SqlCommand cmd;
-        query = "insert into users values(@name,@email,@username,@password,@confirm_password,@address,@country,@state,@city,@contact,@occupation) ";
+        query = "insert into users values(@name,@email,@username,@password,@confirm_password,@address,@country,@state,@city,@contact,@occupation,@role) ";
         cmd = new SqlCommand(query, db.con);
         cmd.Parameters.AddWithValue("@name", name);
         cmd.Parameters.AddWithValue("@email", email);
@@ -33,6 +33,7 @@ public class AddUser
         cmd.Parameters.AddWithValue("@contact", contact);
         cmd.Parameters.AddWithValue("@occupation", occupation);        
         //cmd.Parameters.AddWithValue("@photo", photo);
+        cmd.Parameters.AddWithValue("@role", role);        
 
         db.openConnection();
         cmd.ExecuteNonQuery();

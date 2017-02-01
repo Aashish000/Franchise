@@ -34,7 +34,7 @@ public partial class registration: System.Web.UI.Page
 
                
 
-                register.createUser(name.Text, email.Text, username.Text, password.Text, txtconfirmpwd.Text, address.Text, country.Text, state.Text, city.Text, cont, occupation.Text);
+                register.createUser(name.Text, email.Text, username.Text, password.Text, txtconfirmpwd.Text, address.Text, country.Text, state.Text, city.Text, cont, occupation.Text,role.Text);
                 msg.Visible = true;
                 msg.Text = "new User added";
                 msg.ForeColor = Color.Green;

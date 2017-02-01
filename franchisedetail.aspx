@@ -26,57 +26,62 @@
                                                 int id = Convert.ToInt32(db.dr[0].ToString());
                                                 
                 %>
-           <div class="logo">
+           <div class="content-logo">
                
                     <img class="categories-image" src="uploads/<%= logo %> " height="200" width="200"/><br/>
                 
            </div>
-         <div class="info" style="float:left">
-          <table class="auto-style1">
+         <div class="info">
+          <table class="auto-style1" style="padding:10px">
                <tr>
                     <th class="auto-style5" colspan="2">
-                        <h2><%= name %></h2>
+                        <h2 style="border-bottom: 6px solid #5f6373"><%= name %></h2>
                         
                     </th>
                 </tr>
+               <tr>
+                <td class="auto-style19" style="text-align: left">
+                    <%=description %>
+                </td>
+               </tr>
                 <tr>
-                    <th class="auto-style2"> Description</th>
-                    <td class="auto-style2">
-                       <%=description %>
-                    </td>
+                     <br/>
+                    <th class="auto-style15" style="background:#e62005; color:white" colspan="2">
+                        <h2 style="height: 23px">Business Details</h2>
+                    </th>
                 </tr>
                 <tr>
-                    <th class="auto-style3">Email</th>
-                    <td class="auto-style3">
+                    <th class="auto-style16">Email</th>
+                    <td class="auto-style12">
                     <%= email %>
                     </td>
                 </tr>
                 <tr>
-                    <th class="auto-style6">Established Date</th>
+                    <th class="auto-style17">Established Date</th>
                     <td class="auto-style6">
                         <%= established_date %>
                     </td>
                 </tr>
                  <tr>
-                    <th class="auto-style2">Started Date</th>
+                    <th class="auto-style14">Franchise Started Date</th>
                     <td class="auto-style2">
                         <%= started_date %>
                     </td>
                 </tr>
                 <tr>
-                    <th class="auto-style9">Concept</th>
+                    <th class="auto-style18">Concept</th>
                     <td class="auto-style9">
                         <%= concept %>
                     </td>
                 </tr>
                 <tr>
-                    <th class="auto-style9">Investment Required</th>
+                    <th class="auto-style18">Investment Required</th>
                     <td class="auto-style9">
                         <%= investment_required %>
                     </td>
                 </tr>
                 <tr>
-                    <th class="auto-style9">No of Units</th>
+                    <th class="auto-style18">No of Units</th>
                     <td class="auto-style9">
                        <%= no_of_units %>
                     </td>
@@ -87,14 +92,21 @@
 
 
          </div>
+         <%
+             if(Session["role"]== "investor")    
+                            {
+         %>
          <div class="apply" style="float:right">
             
-             <a href="applyfranchise.aspx?id=<%=id%>" style="color:white;background:blue">Apply</a>
+            <button class="button" id="btn"> <a href="applyfranchise.aspx?id=<%=id%>">Apply For this Franchise</a></button>
          </div>
+         <%
+         } %>
          <%
                                     }
                                     db.closeConnection();
                                     }
+                                    
          %>
      </div>
 </asp:Content>
@@ -108,22 +120,54 @@
         .auto-style2 {
             height: 43px;
         }
-        .auto-style3 {
-            height: 58px;
-        }
-        .auto-style4 {
-            height: 24px;
-        }
         .auto-style5 {
-            height: 25px;
+            height: 80px;
+            text-align: left;
         }
         .auto-style6 {
             height: 53px;
+            text-align: left;
         }
         .auto-style9 {
             height: 41px;
         }
-    </style>
+        .auto-style12 {
+            height: 44px;
+            text-align: left;
+        }
+        .auto-style14 {
+            height: 43px;
+            text-align: center;
+            font-weight: normal;
+            width: 413px;
+        }
+        .auto-style15 {
+            height: 46px;
+            text-align: left;
+            }
+        .auto-style16 {
+            height: 44px;
+            text-align: center;
+            font-weight: normal;
+            width: 413px;
+        }
+        .auto-style17 {
+            height: 53px;
+            text-align: center;
+            font-weight: normal;
+            width: 413px;
+        }
+        .auto-style18 {
+            height: 41px;
+            text-align: center;
+            font-weight: normal;
+            width: 413px;
+        }
+        .auto-style19 {
+            width: 413px;
+            height: 35px;
+        }
+        </style>
 </asp:Content>
 
 

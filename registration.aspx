@@ -131,6 +131,19 @@
             &nbsp;</td>
     </tr>--%>
     <tr>
+        <td class="auto-style7">Role</td>
+        <td class="auto-style8">
+             <asp:DropDownList class="TextBox" ID="role" runat="server">
+                 <asp:ListItem  Value="franchiser">Franchiser</asp:ListItem>
+                 <asp:ListItem  Value="investor">Investor</asp:ListItem>
+              </asp:DropDownList>
+        </td>
+        <td class="auto-style9">
+            &nbsp;</td>
+    </tr>
+     
+    
+    <tr>
         <td class="auto-style7">&nbsp;</td>
         <td class="auto-style8">
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit" Width="99px" />

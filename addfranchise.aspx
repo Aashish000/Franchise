@@ -2,12 +2,48 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div class="content-header">
-        <h1><b>Add Franchise</b> </h1>
+      <div class="user-container">
        
-    </div> <br/>
-    <div class="content">
-        <asp:Label ID="msg" runat="server" Text="Label"></asp:Label>
+             <div class="user-navigation">
+                  <%
+                          dbConnection db = new dbConnection();
+                           if (Session["username"] != null)
+                            { 
+                           if(Session["role"]== "franchiser")    
+                           {      
+                            string query = "select* from users where username ='" + Session["username"] + "'";
+                            db.cmd = new System.Data.SqlClient.SqlCommand(query, db.con);
+                            db.openConnection();
+                            db.dr = db.cmd.ExecuteReader();
+                                while (db.dr.Read())
+                                            {
+                                                string name = db.dr[1].ToString();
+                                                string email = db.dr[2].ToString();
+                                                string username = db.dr[3].ToString();
+                                                string password = db.dr[4].ToString();
+                                                string address = db.dr[6].ToString();
+                                                string country = db.dr[7].ToString();
+                                                string state = db.dr[8].ToString();
+                                                string city = db.dr[9].ToString();                                                                          
+                                                string contact = db.dr[10].ToString();
+                                                string occupation = db.dr[11].ToString();
+                                                int id = Convert.ToInt32(db.dr[0].ToString());
+                                                
+                %>
+                   
+                 <ul>
+                    <li> <a href="franchiser.aspx" style="color:#FFFFFF">Dashboard</a></li>
+                    <li> <a href="franchise.aspx" style="color:#FFFFFF">Activities</a></li>
+                    <li> <a href="logout.aspx" style="color:#FFFFFF">Logout</a></li>
+                </ul>
+                </div>
+            <div class="user-header">   
+             <h2 style="float:left">Add Franchises&nbsp&nbsp </h2>
+            </div>
+    
+          
+      <asp:label ID="msg" runat="server"></asp:label>
+    <div class="user-content">
         <table class="auto-style1">
             <tr>
                 <td class="auto-style11">
@@ -120,8 +156,15 @@
                     <input id="Reset1" type="reset" value="Reset" /></td>
             </tr>
         </table>
-
+           <%
+                                    }
+                                    db.closeConnection();
+                                    }  
+                                    }                       
+         %>
+     
     </div>
+          </div>
 </asp:Content>
 
 <asp:Content ID="Content2" runat="server" contentplaceholderid="head">
@@ -181,5 +224,3 @@
     }
     </style>
 </asp:Content>
-
-

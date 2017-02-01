@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
@@ -15,6 +14,8 @@ public partial class admin_editfranchise : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        uid.Visible = false;
+        user_id.Visible = false;
         dbConnection db = new dbConnection();
         if (!Page.IsPostBack)
         {
@@ -25,46 +26,68 @@ public partial class admin_editfranchise : System.Web.UI.Page
             category.DataTextField = ("name");
             category.DataValueField = ("id");
             category.DataBind();
-
-            if (Request.QueryString["id"] != null)
+            if (Session["username"] != null)
             {
-
-                string data = "select * from franchise where id='" + Request.QueryString["id"] + "'";
-                SqlDataAdapter da = new SqlDataAdapter(data, db.con);
-                DataSet ds = new DataSet();
-                da.Fill(ds, "franchise");
-                DataTable dt = ds.Tables[0];
-                DataRow dr = dt.Rows[0];
-                franchise_name.Text = dr["franchise_name"].ToString();
-                description.Text = dr["description"].ToString();
-                email.Text = dr["email"].ToString();             
-                established_date.Text = dr["established_date"].ToString();
-                started_date.Text = dr["started_date"].ToString();
-                concept.Text = dr["concept"].ToString();
-                investment_required.Text = dr["investment_required"].ToString();
-                no_of_units.Text = dr["no_of_units"].ToString();
-                category.Text = dr["catid"].ToString();
-                if (dr["logo"] != null)
+                string query = "select* from users where username ='" + Session["username"] + "'";
+                db.cmd = new System.Data.SqlClient.SqlCommand(query, db.con);
+                db.openConnection();
+                db.dr = db.cmd.ExecuteReader();
+                while (db.dr.Read())
                 {
-                    lbllogo.Text = "<img id='id' src='uploads/" + dr["logo"] + "' width='100' height='100' />";
-                    imagepath.Value = dr["logo"].ToString();
+                    string id = db.dr[0].ToString();
+                    user_id.Text = id;
                 }
-
-
- 
-
+                db.closeConnection();
             }
-            if (Session["username"] == null)
-            {
-                Response.Redirect("login.aspx");
+                if (Request.QueryString["id"] != null)
+                {
+                     
+                    string data = "select * from franchise where id='" + Request.QueryString["id"] + "'";
+                    SqlDataAdapter da = new SqlDataAdapter(data, db.con);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds, "franchise");
+                    DataTable dt = ds.Tables[0];
+                    DataRow dr = dt.Rows[0];
+                    franchise_name.Text = dr["franchise_name"].ToString();
+                    description.Text = dr["description"].ToString();
+                    email.Text = dr["email"].ToString();
+                    established_date.Text = dr["established_date"].ToString();
+                    started_date.Text = dr["started_date"].ToString();
+                    concept.Text = dr["concept"].ToString();
+                    investment_required.Text = dr["investment_required"].ToString();
+                    no_of_units.Text = dr["no_of_units"].ToString();
+                    category.Text = dr["catid"].ToString();
+                    uid.Text = dr["uid"].ToString();
+                    if (dr["logo"] != null)
+                    {
+                        lbllogo.Text = "<img id='id' src='uploads/" + dr["logo"] + "' width='100' height='100' />";
+                        imagepath.Value = dr["logo"].ToString();
+                    }
 
-            }
-            else
-            {
+                    if (uid.Text != user_id.Text)
+                    {
+                        Response.Redirect("login.aspx");
+                        msg.Visible = true;
+                        msg.Text = "wrong login credentials";
+                    }
+                    else
+                    {
+                        
+                    }
 
+                }
+                if (Session["username"] == null)
+                {
+                    Response.Redirect("login.aspx");
+
+                }
+                else
+                {
+
+                }
             }
         }
-    }
+    
     protected void Button1_Click(object sender, EventArgs e)
     {
         try

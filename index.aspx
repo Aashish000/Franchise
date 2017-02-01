@@ -8,8 +8,8 @@
                 </div>
                 <div class="search">
                      <div class="bcolor">
-                        <asp:TextBox ID="searchlabel" runat="server" placeholder="  search..." Height="41px" Width="348px"></asp:TextBox>
-                        <asp:Button ID="searchbtn" runat="server" Text="search" />
+                        <asp:TextBox ID="searchlabel" runat="server" placeholder="  search for franchise..." Height="41px" Width="348px"></asp:TextBox>
+                        <asp:Button ID="searchbtn" runat="server" Text="search" OnClick="search_Click"  />
                      </div>
                 </div>
                <div class="categories">

@@ -68,7 +68,7 @@ public partial class editfranchiser : System.Web.UI.Page
                 msg.ForeColor = Color.Red;
             }
 
-            else if (newpassword.Text != confirm_password.Text)
+            if (newpassword.Text != confirm_password.Text)
             {
                 msg.Visible = true;
                 msg.Text = "password doesnt match";
@@ -78,16 +78,15 @@ public partial class editfranchiser : System.Web.UI.Page
             }
             else
             {
-                               
-                string query1 = "UPDATE users set name= '" + name.Text + "', email='" + email.Text + "', username='" + username.Text + "',password='" + newpassword.Text + "', confirm_password='" + confirm_password.Text + "',address='" + address.Text + "',country='" + country.Text + "',state='" + state.Text + "',city='" + city.Text + "',contact='" + contact.Text + "',occupation='" + occupation.Text + "'where username ='" + Session["username"] + "'";
-                SqlCommand cmd = new SqlCommand(query1, db.con);
-                db.openConnection();
-                cmd.ExecuteNonQuery();
-                db.closeConnection();
-                msg.Visible = true;
-                msg.Text = "Franchise Updated successfully";
-                msg.ForeColor = Color.Green;
-
-            }
+                
+                    string query1 = "UPDATE users set name= '" + name.Text + "', email='" + email.Text + "', username='" + username.Text + "',password='" + newpassword.Text + "', confirm_password='" + confirm_password.Text + "',address='" + address.Text + "',country='" + country.Text + "',state='" + state.Text + "',city='" + city.Text + "',contact='" + contact.Text + "',occupation='" + occupation.Text + "'where username ='" + Session["username"] + "'";
+                    SqlCommand cmd = new SqlCommand(query1, db.con);
+                    db.openConnection();
+                    cmd.ExecuteNonQuery();
+                    db.closeConnection();
+                    msg.Visible = true;
+                    msg.Text = "Franchise Updated successfully";
+                    msg.ForeColor = Color.Green;
+             }
     }
 }

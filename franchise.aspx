@@ -2,15 +2,15 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-   <div class="user-container">
-         <div class ="user-header">
-            
-                
-             <ul class="user-navigation">
+    <div class="user-container">
+       
+             <div class="user-navigation">
                   <%
                           dbConnection db = new dbConnection();
                            if (Session["username"] != null)
-                            {   
+                            { 
+                           if(Session["role"]== "franchiser")    
+                           {      
                             string query = "select* from users where username ='" + Session["username"] + "'";
                             db.cmd = new System.Data.SqlClient.SqlCommand(query, db.con);
                             db.openConnection();
@@ -31,20 +31,20 @@
                                                 
                 %>
                    
-                     
-                   <li> <a href="franchiser.aspx" style="color:black">Dashboard</a></li>
-                    <li> <a href="franchise.aspx?id=<%=id %>" style="color:black">Activities</a></li>
-                      
-                 <li> <a href="logout.aspx" style="color:black">Logout</a></li>
-
+                 <ul>
+                    <li> <a href="franchiser.aspx" style="color:#FFFFFF">Dashboard</a></li>
+                    <li> <a href="franchise.aspx" style="color:#FFFFFF">Activities</a></li>
+                    <li> <a href="logout.aspx" style="color:#FFFFFF">Logout</a></li>
                 </ul>
-            <h2 style="float:left"> Franchises&nbsp&nbsp </h2>
-            <a href="addfranchise.aspx"><img src="images/add.png" height="20" width="20"> </a><br/>
+                </div>
+            <div class="user-header">   
+             <h2 style="float:left"> Franchises&nbsp&nbsp </h2>
+            <a href="addfranchise.aspx"><img src="images/add.png" height="20" width="20" style="background:#FFFFFF"> </a><br/>
         </div>
+    
           
+      <asp:label ID="msg" runat="server"></asp:label>
         <div class="user-content">
-        <asp:label ID="msg" runat="server"></asp:label>
-       
           <table class="franchiseinfo">
                 <tr>
                     <th>S.NO</th>
@@ -69,7 +69,7 @@
                         db.cmd = new System.Data.SqlClient.SqlCommand(data, db.con);
                         }
                         db.closeConnection();
-                        }
+                        
                         db.openConnection();
                         db.dr = db.cmd.ExecuteReader();
                         int count=1;
@@ -107,8 +107,12 @@
                        
                     <td><%= count %></td>
                         <asp:Label ID="fid" runat="server" Text="Label"></asp:Label>
-                    <td><%=  franchise_name %></td>
-                    <td><%=  description %></td>
+                    <td><%=  franchise_name %>
+                        <a href="addinvestment.aspx?id=<%= franchiseid %>" style="color:blue">Add Investment Details</a>
+                    </td>
+                    <td>
+                        <%=  description %>
+                    </td>
                     <td><%= email %></td>
                     <td><img class="categories-image" src="uploads/<%= logo %> " height="50" width="50"/></td>
                     <td><%= established_date %></td>
@@ -120,10 +124,14 @@
                     <td><%= catid %></td>
 
                     <td>
-                         
+                             
+                              
                         <button class="button"><a href="editfranchise.aspx?id=<%= franchiseid %>" style="color:black">Update</a></button>
+                        <button class="button"><a href="investmentdetail.aspx?id=<%= franchiseid %>" style="color:black">Investment Detail</a></button>
+                        <button class="button"><a href="franchise.aspx?id=<%= franchiseid %>" style="color:black">Delete</a></button>
                          
-                         <asp:Button class="button" ID="Button1" runat="server" Text="Delete" OnClick="btnDelete_Click"  />
+                        <%--<asp:Button class="button" ID="Button1" runat="server" Text="Delete" OnClick="btnDelete_Click"  />--%>
+                        
                          <button class="button"><a href="application.aspx?id=<%= franchiseid %>" style="color:black">Application</a></button>
                     </td>
                 </tr>
@@ -135,13 +143,11 @@
                         }
                         }
                         db.closeConnection();
-                         
+                        }
+                        }
                 %>
             </table>
-
-
-
-        </div>
+            </div>
 
 </div>
 

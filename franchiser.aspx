@@ -6,8 +6,10 @@
                        dbConnection db = new dbConnection();
                       
                      if (Session["username"] != null)
-                    {                        
-                        string query = "select* from users where username ='" + Session["username"] + "'";
+                    {              
+                         if(Session["role"]== "franchiser")    
+                         {      
+                            string query = "select* from users where username ='" + Session["username"] + "'";
                             db.cmd = new System.Data.SqlClient.SqlCommand(query, db.con);
                             db.openConnection();
                             db.dr = db.cmd.ExecuteReader();
@@ -28,25 +30,26 @@
                 %>
     <div class="user-container">
          <div class ="user-header">
-             <h3>Welcome <small><%= name %></small>&nbsp </h3>
-             <ul class="user-navigation">
-                  
-                   <li> <a href="franchiser.aspx" style="color:black">Dashboard</a></li>
-                    <li> <a href="franchise.aspx" style="color:black">Activities</a></li>
+             <h3 style="padding: 9px">Welcome <small><%= name %></small>&nbsp </h3>
+         </div>
+             <div class="user-navigation">
+                 <ul>            
+                        <li> <a href="franchiser.aspx" style="color:#FFFFFF">Dashboard</a></li>
+                        <li> <a href="franchise.aspx" style="color:#FFFFFF">Activities</a></li>
                       
-                 <li> <a href="logout.aspx" style="color:black">Logout</a></li>
-                 
-                </ul>
+                        <li> <a href="logout.aspx" style="color:#FFFFFF">Logout</a></li>
+                  </ul>
+                </div>
            
-        </div>
-        <div class="apply">
-           <%--<a href="editfranchiser.aspx?id=<%=id%>" style="color:white;background:blue">--%>
-               <a href="editfranchiser.aspx" style="float:right">
-               <img src="images/editicon.png" alt="Edit" height="40" width="40" /></a>
-        </div>
+      
 
           <div class="user-content">
             
+                <div class="apply">
+   
+                       <a href="editfranchiser.aspx">
+                       <img src="images/editicon.png" alt="Edit" height="40" width="40" /></a>
+                </div>
           <table class="auto-style1">
               
               
@@ -117,7 +120,8 @@
          <%
                                     }
                                     db.closeConnection();
-                                    }                         
+                                    }  
+                                    }                       
          %>
      
 </asp:Content>
