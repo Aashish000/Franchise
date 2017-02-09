@@ -41,10 +41,8 @@
              <h2 style="float:left"> Franchises&nbsp&nbsp </h2>
             <a href="addfranchise.aspx"><img src="images/add.png" height="20" width="20" style="background:#FFFFFF"> </a><br/>
         </div>
-    
-          
-      <asp:label ID="msg" runat="server"></asp:label>
-        <div class="user-content">
+      <div class="user-content">
+            <asp:label ID="msg" runat="server"></asp:label>
           <table class="franchiseinfo">
                 <tr>
                     <th>S.NO</th>
@@ -57,7 +55,7 @@
                     <th>Concept</th>
                     <th>Investment Required</th>
                     <th>No Of Units</th>
-                    <th>User Id</th>
+                    <%--<th>User Id</th>--%>
                     <th>Cat Id</th>
                     <asp:Label ID="no" runat="server" Text="Label"></asp:Label>
                 </tr>
@@ -111,7 +109,7 @@
                         <a href="addinvestment.aspx?id=<%= franchiseid %>" style="color:blue">Add Investment Details</a>
                     </td>
                     <td>
-                        <%=  description %>
+                       <p class="desc"> <%=  description %></p>
                     </td>
                     <td><%= email %></td>
                     <td><img class="categories-image" src="uploads/<%= logo %> " height="50" width="50"/></td>
@@ -120,7 +118,7 @@
                     <td><%= concept %></td>
                     <td><%= investment_required %></td>
                     <td><%= no_of_units %></td>
-                    <td><%= uid %></td>
+                    <%--<td><%= uid %></td>--%>
                     <td><%= catid %></td>
 
                     <td>

@@ -36,7 +36,7 @@
             <ul>                         
                 <li> <a href="index.aspx">Dashboard</a> </li>
                 <li> <a href="categories.aspx">Categories</a> </li>
-                <li> <a href="#">Users</a> </li>
+                <li> <a href="user.aspx">Users</a> </li>
             </ul>
            
         </div>

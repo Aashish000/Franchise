@@ -127,11 +127,11 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style13">No. of units&nbsp; </td>
-                <td class="auto-style3">
+                <td class="auto-style4">No. of units&nbsp; </td>
+                <td class="auto-style5">
                     <asp:TextBox ID="no_of_units" runat="server" Width="196px"></asp:TextBox>
                 </td>
-                <td>
+                <td class="auto-style6">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="no_of_units" ErrorMessage="No of units required" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="no_of_units" Display="Dynamic" ErrorMessage="No of units can be only numbers " ForeColor="Red" ValidationExpression="^[1-9]\d{0,7}(?:\.\d{1,4})?$"></asp:RegularExpressionValidator>
                 </td>
@@ -141,13 +141,15 @@
                 <td class="auto-style3">
                     <asp:TextBox ID="userid" runat="server" Width="196px"></asp:TextBox>
                 </td>
-                <td>
+                <td class="auto-style3">
                     &nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style13">Category</td>
                 <td class="auto-style3">
-                <asp:DropDownList class="TextBox" ID="category" runat="server"></asp:DropDownList>
+                <asp:DropDownList class="TextBox" ID="category" runat="server">
+                    <asp:ListItem>SELECT CATEGORY</asp:ListItem>
+                </asp:DropDownList>
                
                 </td>
             </tr>

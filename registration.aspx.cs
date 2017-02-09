@@ -21,34 +21,35 @@ public partial class registration: System.Web.UI.Page
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
-        //if (photo.HasFile)
-        //{
-        //    string str = photo.FileName;
-        //    string fileExtension = Path.GetExtension(str);
-        //    if (fileExtension.ToLower() == ".jpg" || fileExtension.ToLower() == ".png" || fileExtension.ToLower() == ".bmp")
-        //    {
-        //        photo.PostedFile.SaveAs(Server.MapPath(".") + "//uploads//" + str);
-        //        String path = "~//../uploads//" + str.ToString();
+        string data = "select username from users where username='"+username.Text+"'";
+        db.cmd = new SqlCommand(data, db.con);
+        db.openConnection();
+        db.dr = db.cmd.ExecuteReader();
+        if (db.dr.Read())
+        {
+
+            msg.Visible = true;
+            msg.Text = "username already exists";
+            msg.ForeColor = Color.Red;
+        }
+        else 
+        {
+
+            try
+            {
                 AddUser register = new AddUser();
                 int cont = Convert.ToInt32(contact.Text);
-
-               
-
-                register.createUser(name.Text, email.Text, username.Text, password.Text, txtconfirmpwd.Text, address.Text, country.Text, state.Text, city.Text, cont, occupation.Text,role.Text);
+                register.createUser(name.Text, email.Text, username.Text, password.Text, txtconfirmpwd.Text, address.Text, country.Text, state.Text, city.Text, cont, occupation.Text, role.Text);
                 msg.Visible = true;
                 msg.Text = "new User added";
                 msg.ForeColor = Color.Green;
-            //}
-            //else 
-            //{
-            //    msg.Visible = true;
-            //    msg.Text = "uploaded file must be either in jpg, png or bmp format";
-            //    msg.ForeColor = Color.Green;
-            //}
+            }
+            catch (Exception ex)
+            {
+                msg.Text = ex.Message;
+                msg.ForeColor = Color.Red;
+            }
         }
-        //else
-        //{
-
-        //}
-
     }
+       
+}

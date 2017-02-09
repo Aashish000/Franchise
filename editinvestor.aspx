@@ -94,48 +94,16 @@
                         <asp:TextBox ID="occupation" runat="server"></asp:TextBox>
                     </td>
                 </tr>
-            </table>
-                <hr/>
-             
-             
-
-            
-           
-             <table>
-                 
-             
-                <tr>
-                    <th class="auto-style7">Username</th>
-                    <td class="auto-style8">
-                        <asp:TextBox ID="username" runat="server"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <th class="auto-style7">Old Password</th>
-                    <td class="auto-style8">
-                        <asp:TextBox ID="oldpassword" runat="server"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <th class="auto-style7">New Password</th>
-                    <td class="auto-style8">
-                        <asp:TextBox ID="newpassword" runat="server"></asp:TextBox>
-                    </td>
-                </tr>
                  <tr>
-                    <th class="auto-style7">Confirm Password</th>
-                    <td class="auto-style8">
-                        <asp:TextBox ID="confirm_password" runat="server"></asp:TextBox>
-                    </td>
-                </tr>
-                
-                <tr>
                     <th class="auto-style7">&nbsp;</th>
                     <td class="auto-style8">
                         <asp:Button ID="Button1" runat="server" OnClick="Button1_Click1" Text="Update" />
                     </td>
                 </tr>
             </table>
+                <hr/>
+             <a href="changepassword.aspx" style="color:blue">Change Password</a>
+  
         </div>
     
        

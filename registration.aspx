@@ -2,8 +2,8 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    
-    <table class="content">
+      <div class="user-container">
+    <table class="user-content">
         <asp:Label ID="msg" runat="server" Text="Label"></asp:Label>
     <tr>
         <td class="auto-style1" colspan="3">Registration Form</td>
@@ -34,7 +34,8 @@
             <asp:TextBox ID="username" runat="server" Width="180px"></asp:TextBox>
         </td>
         <td>
-            *<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="username" ErrorMessage="Username required" ForeColor="Red"></asp:RequiredFieldValidator>
+            *<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="username" ErrorMessage="Username required" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="username" Display="Dynamic" ErrorMessage="No whitespace allowed" ForeColor="#FF3300" ValidationExpression="^\S+$"></asp:RegularExpressionValidator>
         </td>
         </tr>
     <tr>
@@ -79,7 +80,7 @@
             </asp:DropDownList>
         </td>
         <td class="auto-style9">
-            *<asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="country" ErrorMessage="Country required" ForeColor="Red"></asp:RequiredFieldValidator>
+            *<asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="country" ErrorMessage="Country required" ForeColor="Red" InitialValue="SELECT COUNTRY"></asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
@@ -107,7 +108,7 @@
         </td>
         <td class="auto-style9">
             *<asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="contact" Display="Dynamic" ErrorMessage="Contact required" ForeColor="Red"></asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="contact" Display="Dynamic" ErrorMessage="Contact should be only numbers" ForeColor="Red" ValidationExpression="\d+$"></asp:RegularExpressionValidator>
+            &nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="contact" Display="Dynamic" ErrorMessage="Contact should be only numbers" ForeColor="Red" ValidationExpression="\d+$"></asp:RegularExpressionValidator>
         </td>
     </tr>
     <tr>
@@ -151,6 +152,7 @@
         <td class="auto-style9">&nbsp;</td>
     </tr>
 </table>
+          </div>
     
 </asp:Content>
 

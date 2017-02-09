@@ -97,11 +97,22 @@ ul
 }
 .content 
 {
+    min-height:300px;
+}
+.infotable 
+{
     margin-left:200px;
     background-color: #FFFFFF;
-    width: 700px;
     border-top: 4px solid #4b646f;
 }
+.infotable tr 
+    {
+        border: 1px solid black;
+    } 
+ .infotable tr td {
+        border: 2px solid #222533;
+    padding-left: 0px;
+   }
 .login-box 
 {
     margin: 7% auto;

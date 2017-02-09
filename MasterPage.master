@@ -58,6 +58,58 @@
         
             </asp:ContentPlaceHolder>
         </div>
+
+        <div class="footer">
+            <div class="footer-left">
+                <a href="index.aspx"><h3>Franchise and Solution</h3></a>
+            </div>
+            <div class="footer-center">
+                <h3>Browse by Categories</h3><br/>
+               <%
+                       dbConnection db = new dbConnection();
+                      
+                       string query = "select* from categories";
+                       db.cmd = new System.Data.SqlClient.SqlCommand(query, db.con);
+                       db.openConnection();
+                       db.dr = db.cmd.ExecuteReader();
+                            while (db.dr.Read())
+                                    {
+                                        string name = db.dr[1].ToString();
+                                       
+                                        string image = db.dr[2].ToString();
+                                        int id = Convert.ToInt32(db.dr[0].ToString());
+                                       
+                                       
+                    %>
+                    <ul class="footer-nav">
+                        
+                        <li> <a href="viewfranchise.aspx?id=<%= id %>"><%= name %></a></li>
+                      
+                            
+                   </ul>
+                   <%
+                                    }
+                                    db.closeConnection();
+
+                   %>
+            </div>
+            <div class="copyright">
+                <h5>Copyright © 2009 - 2017 Franchise Opportunity Holdings Ltd.<br/><br/>
+                    The information contained herein is of generic nature only, and Franchise Opportunity is not, by means of this website or any part thereof, kindly visit www.franchiseopportunity.com/terms.
+                </h5>
+                
+                
+            </div>
+          <div class="footer-right">            
+                <ul>
+                  <li><a href="index.aspx">Home</a></li>
+                  <li><a href="#">Directories</a></li>
+                  <li><a href="#">Categories</a></li>
+                  <li><a href="#">About</a></li>
+                  <li><a href="#">Contact</a></li>
+                </ul>
+           </div>
+        </div>        
     </form>
 </body>
 </html>

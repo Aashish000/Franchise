@@ -17,7 +17,14 @@
                                 while (db.dr.Read())
                                             {
                                                int id = Convert.ToInt32(db.dr[0].ToString());
-                                                userid.Text = db.dr["id"].ToString();      
+                                                userid.Text = db.dr["id"].ToString();
+                                                name.Text = db.dr["name"].ToString();
+                                                email.Text = db.dr["email"].ToString();
+                                                country.Text = db.dr["country"].ToString();
+                                                city.Text = db.dr["city"].ToString();
+                                                address.Text = db.dr["address"].ToString();
+                                                occupation.Text = db.dr["occupation"].ToString();
+                                                education_qualification.Text = db.dr[6].ToString();  
                  %>
         <h2>Apply For Franchise</h2>
         <table class="auto-style1">

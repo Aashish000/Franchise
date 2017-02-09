@@ -52,7 +52,7 @@ public partial class investmentdetail : System.Web.UI.Page
                 }
                 else
                 {
-
+                   
                 }
             }
 

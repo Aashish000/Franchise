@@ -33,6 +33,7 @@ public partial class applyfranchise : System.Web.UI.Page
                 DataRow dr = dt.Rows[0];
 
                 franchiseid.Text = dr["id"].ToString();
+                
             }
 
         }

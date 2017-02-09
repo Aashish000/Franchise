@@ -70,6 +70,7 @@
                 <td class="auto-style13">Logo</td>
                 <td class="auto-style3">
                     <asp:FileUpload ID="logo" runat="server" />
+                    <asp:Image ID="logo1" runat="server" />
                     <asp:Label ID="lbllogo" runat="server" Text="Label"></asp:Label>
                 </td>
                 <td>
@@ -137,7 +138,7 @@
                     <input id="Reset1" type="reset" value="Reset" /></td>
             </tr>
         </table>
-
+         
     </div>
          <asp:HiddenField ID="imagepath" runat="server" />
 

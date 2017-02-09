@@ -58,8 +58,10 @@ public partial class admin_editfranchise : System.Web.UI.Page
                     no_of_units.Text = dr["no_of_units"].ToString();
                     category.Text = dr["catid"].ToString();
                     uid.Text = dr["uid"].ToString();
+                   
                     if (dr["logo"] != null)
                     {
+                        string str = logo.FileName;
                         lbllogo.Text = "<img id='id' src='uploads/" + dr["logo"] + "' width='100' height='100' />";
                         imagepath.Value = dr["logo"].ToString();
                     }
@@ -92,42 +94,63 @@ public partial class admin_editfranchise : System.Web.UI.Page
     {
         try
         {
-            if (logo.HasFile)
+            //if (logo.HasFile)
+            //{
+            //    string str = logo.FileName;
+            //    string fileExtension = Path.GetExtension(str);
+            //    if (fileExtension.ToLower() == ".jpg" || fileExtension.ToLower() == ".png" || fileExtension.ToLower() == ".bmp")
+            //    {
+            //        string imagename = "";
+            //        if (logo.FileName != "")
+            //        {
+            //            FileInfo fl = new FileInfo("~/uploads/" + imagepath.Value.ToString());
+            //            if (fl.Exists)
+            //                fl.Delete();
+
+            //            logo.PostedFile.SaveAs(Server.MapPath("~/uploads/" + logo.FileName));
+            //            imagename = logo.FileName;
+            //        }
+            //        else
+            //        {
+            //            imagename = imagepath.Value.ToString();
+            //        }
+
+            //        AddFranchise editfranchise = new AddFranchise();
+            //        int id = Convert.ToInt16(Request.QueryString["id"]);
+            //        editfranchise.editFranchise(franchise_name.Text, description.Text, email.Text, logo.FileName, established_date.Text, started_date.Text, concept.Text, int.Parse(investment_required.Text), int.Parse(no_of_units.Text), int.Parse(category.Text), id);
+            //        msg.Visible = true;
+            //        msg.Text = "Franchise Updated successfully";
+            //        msg.ForeColor = Color.Green;
+            //    }
+
+            //    else
+            //    {
+            //        msg.Visible = true;
+            //        msg.Text = "uploaded file must be either in jpg, png or bmp format";
+            //        msg.ForeColor = Color.Green;
+            //    }
+            //}
+            AddFranchise editfranchise = new AddFranchise();
+            string imagename = "";
+            if (logo.FileName != "")
             {
-                string str = logo.FileName;
-                string fileExtension = Path.GetExtension(str);
-                if (fileExtension.ToLower() == ".jpg" || fileExtension.ToLower() == ".png" || fileExtension.ToLower() == ".bmp")
-                {
-                    string imagename = "";
-                    if (logo.FileName != "")
-                    {
-                        FileInfo fl = new FileInfo("~/uploads/" + imagepath.Value.ToString());
-                        if (fl.Exists)
-                            fl.Delete();
+                FileInfo fl = new FileInfo("uploads/" + imagepath.Value.ToString());
+                if (fl.Exists)
+                    fl.Delete();
 
-                        logo.PostedFile.SaveAs(Server.MapPath("~/uploads/" + logo.FileName));
-                        imagename = logo.FileName;
-                    }
-                    else
-                    {
-                        imagename = imagepath.Value.ToString();
-                    }
-
-                    AddFranchise editfranchise = new AddFranchise();
-                    int id = Convert.ToInt16(Request.QueryString["id"]);
-                    editfranchise.editFranchise(franchise_name.Text, description.Text, email.Text, logo.FileName, established_date.Text, started_date.Text, concept.Text, int.Parse(investment_required.Text), int.Parse(no_of_units.Text), int.Parse(category.Text), id);
-                    msg.Visible = true;
-                    msg.Text = "Franchise Updated successfully";
-                    msg.ForeColor = Color.Green;
-                }
-
-                else
-                {
-                    msg.Visible = true;
-                    msg.Text = "uploaded file must be either in jpg, png or bmp format";
-                    msg.ForeColor = Color.Green;
-                }
+                logo.SaveAs(Server.MapPath("uploads/" + logo.FileName));
+                imagename = logo.FileName;
             }
+            else
+            {
+                imagename = imagepath.Value.ToString();
+            }
+           
+            int id = Convert.ToInt16(Request.QueryString["id"]);
+            editfranchise.editFranchise(franchise_name.Text, description.Text, email.Text, logo.FileName, established_date.Text, started_date.Text, concept.Text, int.Parse(investment_required.Text), int.Parse(no_of_units.Text), int.Parse(category.Text), id);
+            msg.Visible = true;
+            msg.Text = "Franchise Updated successfully";
+            msg.ForeColor = Color.Green;
         }
 
 

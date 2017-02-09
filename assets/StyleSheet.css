@@ -148,15 +148,16 @@ li {
 
 .content 
 {
-   width:100%;
-    position:absolute;
+    width:100%;
+    min-height:670px;
     background:#f1f2f2;
+    overflow:hidden;
 }
 
 .container {
     margin-left: 75px;
     margin-top: 40px;
-    min-height: 1000px;
+    min-height: 1015px;
 }
 .container-header h1
 {
@@ -174,14 +175,14 @@ li {
             color:black;
             background:white;
             margin-left:11px;
-            box-shadow: 5px 5px 20px #888888;
+            box-shadow: 5px 0px 20px #888888;
                 
         }
 
 .latest-franchises 
 {
     margin-top: 20px;
-    min-height: 300px;
+    min-height: 285px;
     margin-left: 23px;
 
 }
@@ -237,6 +238,7 @@ li {
     margin-left: 45px;
     width: 620px;
     background: white;
+    height: 565px;
 }
 #btn 
 {
@@ -295,8 +297,9 @@ li {
 }
 .login-box 
 {
-    margin: 7% auto;
-    width:360px;
+        margin: 7% 36% auto;
+    width: 360px;
+    position: absolute;
 }
     .login-box .logo 
     {
@@ -313,4 +316,63 @@ li {
     padding: 20px;
     min-height: 200px;
     color: #666;
+}
+.desc 
+{
+    width: 150px;
+     white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
+}
+.footer 
+{
+  background: black;
+    color: white;
+    margin-top: 0px;
+    min-height: 276px;
+    position: absolute;
+    width: 100%;
+}
+.footer-left 
+{
+    position: absolute;
+    margin-top: 40px;
+    margin-left: 53px;
+}
+.footer-right 
+{
+   float: right;
+    margin-top: 205px;
+    font-size: 13px;
+}
+.footer-center 
+{
+      float: left;
+    margin-left: 290px;
+    margin-top: 38px;
+    border-left: 1px solid #fff;
+    padding: 7px;
+
+}
+ul.footer-nav 
+{
+        font-size: 13px;
+    font-family: 'proxima_novalight';
+    color: #999999;
+    margin: -11px 0;
+    padding: 0;
+    font-weight: 400;
+}
+    ul.footer-nav li 
+    {
+            padding: 0;
+    line-height: 3px;
+    }
+.copyright 
+{
+        width: 331px;
+    position: absolute;
+    margin-top: 57px;
+    margin-left: 555px;
+    color: #5a5f5f;
 }

@@ -50,28 +50,18 @@ public partial class admin_Default : System.Web.UI.Page
                             if (Request.QueryString["id"] != null)
                             {
                                 int id = int.Parse(Request.QueryString["id"]);
-                                string data1 = "select * from application where fid='" + id + "'";
-                                db.da = new SqlDataAdapter(data1, db.con);
+                                string data = "select * from application where fid='" + id + "'";
+                                db.da = new SqlDataAdapter(data, db.con);
                                 db.ds = new DataSet();
                                 db.da.Fill(db.ds, "application");
                                 if (db.ds.Tables[0].Rows.Count > 0)
                                 {
                                     msg.Visible = true;
                                     msg.Text = "Cannot Delete";
+                                    msg.ForeColor = Color.Red;
 
                                 }
-                                string data = "select * from investment_details where fid='" + id + "'";
-                                db.da = new SqlDataAdapter(data, db.con);
-                                db.ds = new DataSet();
-                                db.da.Fill(db.ds, "franchise");
-                                if (db.ds.Tables[0].Rows.Count > 0)
-                                {
-                                    msg.Visible = true;
-                                    msg.Text = "Cannot Delete";
-
-                                }
-                               
-                                else
+                                else if (db.ds.Tables[0].Rows.Count < 0)
                                 {
                                     string query = "DELETE FROM franchise WHERE id=" + Request.QueryString["id"];
                                     SqlCommand cmd = new SqlCommand(query, db.con);
@@ -79,6 +69,29 @@ public partial class admin_Default : System.Web.UI.Page
                                     cmd.ExecuteNonQuery();
                                     msg.Visible = true;
                                     msg.Text = "Record Deleted";
+                                    msg.ForeColor = Color.Red;
+                                }
+
+                                string data1 = "select * from investment_details where fid='" + id + "'";
+                                db.da = new SqlDataAdapter(data1, db.con);
+                                db.ds = new DataSet();
+                                db.da.Fill(db.ds, "franchise");
+                                if (db.ds.Tables[0].Rows.Count > 0)
+                                {
+                                    msg.Visible = true;
+                                    msg.Text = "Cannot Delete";
+                                    msg.ForeColor = Color.Red;
+                                }
+
+                                else if (db.ds.Tables[0].Rows.Count < 0)
+                                {
+                                    string query = "DELETE FROM franchise WHERE id=" + Request.QueryString["id"];
+                                    SqlCommand cmd = new SqlCommand(query, db.con);
+                                    db.openConnection();
+                                    cmd.ExecuteNonQuery();
+                                    msg.Visible = true;
+                                    msg.Text = "Record Deleted";
+                                    msg.ForeColor = Color.Green;
                                 }
                             }
 
