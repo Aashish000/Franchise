@@ -36,7 +36,6 @@ public partial class editfranchiser : System.Web.UI.Page
                 city.Text = dr["city"].ToString();
                 contact.Text = dr["contact"].ToString();
                 occupation.Text = dr["occupation"].ToString();
-
             }
              else
              {

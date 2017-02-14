@@ -44,11 +44,12 @@
       
 
           <div class="user-content">
-            
+              
                 <div class="apply">
    
                        <a href="editfranchiser.aspx">
                        <img src="images/editicon.png" alt="Edit" height="40" width="40" /></a>
+             
                 </div>
           <table class="auto-style1">
               

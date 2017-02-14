@@ -27,6 +27,7 @@
                                                 education_qualification.Text = db.dr[6].ToString();  
                  %>
         <h2>Apply For Franchise</h2>
+       
         <table class="auto-style1">
             <tr>
                 <td class="auto-style3" colspan="2">

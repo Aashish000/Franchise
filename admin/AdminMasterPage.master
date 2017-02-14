@@ -18,7 +18,9 @@
         </div>
         <div class="right">
             <ul>
-                <li><a href="#"> Welcome User!</a></li>
+               
+                <li><a href="#"> Welcome admin! </a></li>
+    
                 <li><a href="logout.aspx"> Logout</a></li>
             </ul>
         </div>
@@ -34,7 +36,7 @@
         <div class="navigation">
              <div class="nav-header"> <h3> Main Navigation </h3> </div>
             <ul>                         
-                <li> <a href="index.aspx">Dashboard</a> </li>
+                <li> <a href="index.aspx">Dashboard </a> </li>
                 <li> <a href="categories.aspx">Categories</a> </li>
                 <li> <a href="user.aspx">Users</a> </li>
             </ul>
@@ -51,7 +53,7 @@
     </div>
     
     <div class="footer">
-            <strong>"copyright @2016-2018"<a>Aashish Adhikari</a></strong>
+           <strong>"copyright @2016-2018"<a>Aashish Adhikari</a></strong>
     </div>
        
    

@@ -140,7 +140,7 @@
         </table>
          
     </div>
-         <asp:HiddenField ID="imagepath" runat="server" />
+         <asp:HiddenField ID="hiddenimage" runat="server" />
 
         </div>
     <%} %>

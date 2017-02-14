@@ -43,6 +43,7 @@
                     <th>Occupation</th>
                     <th>Education Qualification</th>
                     <asp:Label ID="no" runat="server" Text="Label"></asp:Label>
+                    <th>Status</th>
 
                 </tr>
                 <%
@@ -75,7 +76,8 @@
                             string address = db.dr[5].ToString();
                             string occupation = db.dr[6].ToString();
                             string education_qualification = db.dr[7].ToString();                  
-                            
+                            string status = db.dr["status"].ToString();
+                            int fid = int.Parse(db.dr["fid"].ToString());
 
 
                             %>
@@ -99,10 +101,20 @@
                     <td><%= address %></td>
                     <td><%= occupation %></td>
                     <td><%= education_qualification %></td>
-                    <td>
-                        
-                       </td>
-
+                    <td><%= status %></td>
+                    <td><%if(status == "not approved"){ %> 
+                        <a href="?franid=<%=fid %>">
+                        <asp:Label ID="lblnot" runat="server" Text="not approved" style="color: #fff;background:#f00"></asp:Label>
+                    </a>
+                        <%} %>
+                        <%else if(status == "approved") { %>
+                         <a href="?fid=<%=fid %>">
+                        <asp:Label ID="lblapproved" runat="server" Text="approved" style="color: #fff;background:#009900"></asp:Label>
+                          </a>
+                       
+                         <%} %>
+                   
+                   </td>  
                     <td>
                         
                          <asp:Button class="button" ID="Button1" runat="server" Text="Delete" OnClick="btnDelete_Click"  />

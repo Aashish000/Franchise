@@ -35,6 +35,7 @@
              <div class="user-navigation">
                   <ul>                 
                         <li> <a href="investor.aspx" style="color:#FFFFFF">Dashboard</a></li>
+                      <li> <a href="viewapplication.aspx?id=<%=id %>" style="color:#FFFFFF">Application</a></li>
                         <li> <a href="logout.aspx" style="color:#FFFFFF">Logout</a></li>
                  </ul>
              </div>

@@ -9,7 +9,7 @@ public partial class admin_MasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["username"] == null)
+        if (Session["usernames"] == null)
         {
             Response.Redirect("Login.aspx");
 

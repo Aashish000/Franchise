@@ -14,6 +14,25 @@ public partial class application : System.Web.UI.Page
     dbConnection db = new dbConnection();
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Request.QueryString["franid"] != null)
+        {
+            string query = "update application set status='approved' where fid='" + Request.QueryString["franid"] + "'";
+            SqlCommand cmd = new SqlCommand(query, db.con);
+            db.openConnection();
+            cmd.ExecuteNonQuery();
+            db.closeConnection();
+            Response.Redirect("application.aspx?id=" + int.Parse(Request.QueryString["franid"]));
+        }
+        if (Request.QueryString["fid"] != null)
+        {
+            string query = "update application  set status='not approved' where fid='" + Request.QueryString["fid"] + "'";
+            SqlCommand cmd = new SqlCommand(query, db.con);
+            db.openConnection();
+            cmd.ExecuteNonQuery();
+            db.closeConnection();
+            Response.Redirect("application.aspx?id=" + int.Parse(Request.QueryString["fid"]));
+        }
+
         if (!Page.IsPostBack)
         {
             no.Visible = false;

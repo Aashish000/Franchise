@@ -15,7 +15,7 @@ public class UserLogin
 
     public DataTable CheckUsers(string username, string password, string role)
     {
-        string query = "select * from users where username='"+username+"' and password='"+password+"' and role='"+role+"'";
+        string query = "select * from users where username='"+username+"' and password='"+password+"' and role='"+role+"' and status='active'";
         SqlDataAdapter da = new SqlDataAdapter(query, db.con);
         DataSet ds = new DataSet();
         da.Fill(ds, "franchiers");

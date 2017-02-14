@@ -31,9 +31,29 @@
                     <img class="categories-image" src="uploads/<%= logo %> " height="200" width="200"/><br/>
                 
            </div>
+        <div class="apply" style="float:right">
+         <%
+             if(Session["role"]== "investor")    
+                            {
+         %>
+         
+            
+            <button class="button" id="btn"> <a href="applyfranchise.aspx?id=<%=id%>">Apply For this Franchise</a></button>
+        
+         <%
+         }
+         else{ %>
+             
+                 <asp:Button ID="Button1" runat="server" Text="Apply For This Franchise" OnClientClick="return alert('please sign in as investor to continue');" Height="41px" style="color: #FFFFFF; background-color: #FF6600" Width="200px" />
+          
+        <% } %>
+
+          
+     </div>
          <div class="info">
           <table class="auto-style1" style="padding:10px; height: 493px;">
                <tr>
+                   <asp:Label ID="msg" runat="server" Text="Label"></asp:Label>
                     <th class="auto-style5" colspan="2">
                         <h2 style="border-bottom: 6px solid #5f6373"><%= name %></h2>
                         
@@ -86,6 +106,7 @@
                        <%= no_of_units %>
                     </td>
                 </tr>
+     </table>
                <%
                   }
                   db.closeConnection();
@@ -103,9 +124,14 @@
                      
                                     
          %>
+             <table class="tableinfo">
+                 
+              
+               <tr>  
               <th class="auto-style15" style="background:#372e50; color:white" colspan="2">
                         <h2 style="height: 23px;text-align:center">Investment Details</h2>
               </th>
+               </tr>
               <tr>
                     <th class="auto-style20">Investment Required</th>
                     <td class="auto-style2">
@@ -132,25 +158,15 @@
                 </tr>
               
             </table>
-
-           
-         </div>
-         <%
-             if(Session["role"]== "investor")    
-                            {
-         %>
-         <div class="apply" style="float:right">
-            
-            <button class="button" id="btn"> <a href="applyfranchise.aspx?id=<%=fid%>">Apply For this Franchise</a></button>
-         </div>
-         <%
-         } %>
-           <%
+ <%
+          
              }
              db.closeConnection();
              } 
              %>
-
+           
+         </div>
+    
         
  
 </asp:Content>

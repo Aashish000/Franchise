@@ -16,7 +16,7 @@ public class Application
 
     public void applyFranchise(string name, string  email, string country, string city, string address, string occupation, string education_qualification, int fid, int uid )
     {
-        query = "insert into application values(@name,@email,@country,@city,@address,@occupation,@education_qualification,@fid,@uid)";
+        query = "insert into application(name,email,country,city,address,occupation,education_qualification,fid,uid) values(@name,@email,@country,@city,@address,@occupation,@education_qualification,@fid,@uid)";
         cmd = new SqlCommand(query, db.con);
         cmd.Parameters.AddWithValue("@name", name);
         cmd.Parameters.AddWithValue("@email", email);

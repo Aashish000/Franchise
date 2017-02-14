@@ -24,7 +24,7 @@ public partial class admin_login : System.Web.UI.Page
 
             if (dt.Rows.Count > 0)
             {
-                Session["username"] = username;
+                Session["usernames"] = username;
                 Session["password"] = password;
                 Response.Redirect("index.aspx");
 

@@ -12,11 +12,12 @@ using System.Data.SqlClient;
 
 public partial class franchiser : System.Web.UI.Page
 {  
+    dbConnection db = new dbConnection();
    protected void Page_Load(object sender, EventArgs e)
     {
-       
         
     }
+   
  
 }
 

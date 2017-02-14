@@ -20,8 +20,29 @@
           <div class="left">             
                 <ul>
                   <li><a href="index.aspx">Home</a></li>
-                  <li><a href="#">Directories</a></li>
-                  <li><a href="#">Categories</a></li>
+                  <li><a href="directories.aspx">Directories</a></li>
+                  <li class="dropdown">
+                      <a href="#" class="dropdown-btn">Categories</a>
+                      <div class="dropdown-content">
+                           <%
+                                    dbConnection db1 = new dbConnection();
+                                    string query2 = "select * from categories";
+                                    db1.cmd = new System.Data.SqlClient.SqlCommand(query2, db1.con);
+                                    db1.openConnection();
+                                    System.Data.SqlClient.SqlDataReader dr1 = db1.cmd.ExecuteReader();
+                                    while (dr1.Read())
+                                    {
+                                        int id = int.Parse(dr1[0].ToString());
+                                        string name = dr1[1].ToString();            
+                           %>                           
+                                    <a href="viewfranchise.aspx?id=<%=id %>"><%= name %></a>
+                               <%
+                                }
+                                db1.closeConnection();
+
+                                %>
+                      </div>
+                  </li>
                   <li><a href="#">About</a></li>
                   <li><a href="#">Contact</a></li>
                 </ul>
@@ -60,6 +81,7 @@
         </div>
 
         <div class="footer">
+             
             <div class="footer-left">
                 <a href="index.aspx"><h3>Franchise and Solution</h3></a>
             </div>
@@ -104,7 +126,6 @@
                 <ul>
                   <li><a href="index.aspx">Home</a></li>
                   <li><a href="#">Directories</a></li>
-                  <li><a href="#">Categories</a></li>
                   <li><a href="#">About</a></li>
                   <li><a href="#">Contact</a></li>
                 </ul>

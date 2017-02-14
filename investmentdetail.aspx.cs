@@ -17,6 +17,8 @@ public partial class investmentdetail : System.Web.UI.Page
         if (!Page.IsPostBack)
         {
             no.Visible = false;
+            user_id.Visible = false;
+            uid.Visible = false;
             if (Session["username"] != null)
             {
                 string query = "select* from users where username ='" + Session["username"] + "'";

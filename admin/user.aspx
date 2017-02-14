@@ -6,7 +6,7 @@
         <h1>Users</h1>
     </div>
     <div class="content">
-       
+        <asp:Label ID="msg" runat="server" Text="Label"></asp:Label>
         <table class ="infotable">
             <tr>
                 <th>Name</th>
@@ -19,6 +19,8 @@
                 <th>Contact</th>
                 <th>Occupation</th>
                 <th>Role</th>
+                <th>Status</th>
+
             </tr>
              <%
             dbConnection db = new dbConnection();
@@ -28,6 +30,7 @@
             db.dr = db.cmd.ExecuteReader();
             while (db.dr.Read())
             { 
+                int id = int.Parse(db.dr[0].ToString());
                 string name = db.dr[1].ToString();
                 string email = db.dr[2].ToString();
                 string username = db.dr[3].ToString();
@@ -37,7 +40,8 @@
                 string city = db.dr[8].ToString();
                 string contact = db.dr[9].ToString();
                 string occupation = db.dr[10].ToString();
-                string role = db.dr[11].ToString();           
+                string role = db.dr[11].ToString();
+                string status = db.dr["status"].ToString();     
              %>
             <tr>
                 <td><%= name %></td>
@@ -50,6 +54,23 @@
                 <td><%= contact %></td>
                 <td><%= occupation %></td>
                 <td><%= role %></td>
+                <td>
+                  
+                    <% if(status == "active"){ %>
+                    <a onclick="return alert('account deactivated')" href="?id=<%= id %>" >
+                        <asp:Label ID="lbldeactive" runat="server" Text="deactive"   style="color: #fff;background:#f00"></asp:Label>
+                    </a>
+                    <%
+                    } %>
+                    <%
+                    else
+                    { %>
+                    <a onclick="return alert('account activated')" href="?uid=<%= id %>">
+                        <asp:Label ID="Label1" runat="server" Text="active" style="color: #fff;background:#009900"></asp:Label>
+                    </a>
+                    <%} %>
+                </td>
+
             </tr>
             <%
             }

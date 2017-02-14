@@ -30,12 +30,13 @@ public partial class login : System.Web.UI.Page
                         Session["username"] = username.Text;
                         Session["password"] = password.Text;
                         Session["role"] = role.Text;
-                        
+                                               
                         if (role.SelectedItem.Value == "franchiser")
                         {
                             
                             Response.Redirect("franchiser.aspx");
                             Session["id"] = db.dt.Rows[0];
+                            Session["status"] = db.dt.Rows[12];
                         }
                         else if (role.SelectedItem.Value == "investor")
                         {

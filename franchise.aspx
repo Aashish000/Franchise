@@ -28,7 +28,7 @@
                                                 string contact = db.dr[10].ToString();
                                                 string occupation = db.dr[11].ToString();
                                                 int id = Convert.ToInt32(db.dr[0].ToString());
-                                                
+                                                string status = db.dr[12].ToString();
                 %>
                    
                  <ul>
@@ -43,6 +43,7 @@
         </div>
       <div class="user-content">
             <asp:label ID="msg" runat="server"></asp:label>
+            <asp:Literal ID="ltrerror" runat="server"></asp:Literal>
           <table class="franchiseinfo">
                 <tr>
                     <th>S.NO</th>
@@ -55,8 +56,9 @@
                     <th>Concept</th>
                     <th>Investment Required</th>
                     <th>No Of Units</th>
+                    <th>Actions</th>
                     <%--<th>User Id</th>--%>
-                    <th>Cat Id</th>
+                 <%--   <th>Cat Id</th>--%>
                     <asp:Label ID="no" runat="server" Text="Label"></asp:Label>
                 </tr>
                 <%
@@ -119,17 +121,15 @@
                     <td><%= investment_required %></td>
                     <td><%= no_of_units %></td>
                     <%--<td><%= uid %></td>--%>
-                    <td><%= catid %></td>
+                   <%-- <td><%= catid %></td>--%>
 
                     <td>
                              
                               
-                        <button class="button"><a href="editfranchise.aspx?id=<%= franchiseid %>" style="color:black">Update</a></button>
+                        <a  href="editfranchise.aspx?id=<%= franchiseid %>" style="color:black;float:left"><img src="images/edit.png" height="20" width="20" /></a>
+                        <a onclick="return confirm('Are you sure you want to delete this item ?')" href="franchise.aspx?id=<%= franchiseid %>" style="color:black">&nbsp&nbsp<img src="images/delete.png" height="20" width="20" /></a> 
                         <button class="button"><a href="investmentdetail.aspx?id=<%= franchiseid %>" style="color:black">Investment Detail</a></button>
-                        <button class="button"><a href="franchise.aspx?id=<%= franchiseid %>" style="color:black">Delete</a></button>
-                         
-                        <%--<asp:Button class="button" ID="Button1" runat="server" Text="Delete" OnClick="btnDelete_Click"  />--%>
-                        
+                                                        
                          <button class="button"><a href="application.aspx?id=<%= franchiseid %>" style="color:black">Application</a></button>
                     </td>
                 </tr>

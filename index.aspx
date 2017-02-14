@@ -1,6 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="index.aspx.cs" Inherits="home" %>
 
-
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
                <div class="banner">
                <div class="heading"> 
@@ -102,7 +101,7 @@
                     <div class="view">
                         <h4 class="view-text">View Details </h4>
                     </div>
-                    <img class="categories-image" src="uploads/<%= logo %> " height="200" width="230"/><br/><%= name %>
+                    <img class="categories-image" src="uploads/<%= logo %> " height="170" width="170"/><br/><%= name %>
                 </a>
             </li>
         </ul>

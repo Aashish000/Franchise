@@ -19,7 +19,7 @@ public class AddUser
         
         string query;
         SqlCommand cmd;
-        query = "insert into users values(@name,@email,@username,@password,@confirm_password,@address,@country,@state,@city,@contact,@occupation,@role) ";
+        query = "insert into users(name,email,username,password,confirm_password,address,country,state,city,contact,occupation,role) values(@name,@email,@username,@password,@confirm_password,@address,@country,@state,@city,@contact,@occupation,@role)";
         cmd = new SqlCommand(query, db.con);
         cmd.Parameters.AddWithValue("@name", name);
         cmd.Parameters.AddWithValue("@email", email);
