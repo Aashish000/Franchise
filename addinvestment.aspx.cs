@@ -13,8 +13,8 @@ public partial class addinvestment : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
-
+        uid.Visible = false;
+        user_id.Visible = false;
         dbConnection db = new dbConnection();
         if (!Page.IsPostBack)
         {

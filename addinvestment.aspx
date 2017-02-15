@@ -47,7 +47,7 @@
     %>
     <div class="application">
         <h2>Add Investment Detail</h2>
-        <table class="auto-style1">s
+        <table class="auto-style1">
             <tr>
                 <td class="auto-style3" colspan="2">
                     <asp:Label ID="msg" runat="server" Text="Label"></asp:Label>

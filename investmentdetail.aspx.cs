@@ -32,37 +32,24 @@ public partial class investmentdetail : System.Web.UI.Page
                 }
                 db.closeConnection();
             }
-            if (Request.QueryString["id"] != null)
-            {
-
-                string data = "select * from investment_details where fid='" + Request.QueryString["id"] + "'";
-                SqlDataAdapter da = new SqlDataAdapter(data, db.con);
-                DataSet ds = new DataSet();
-                da.Fill(ds, "application");
-                DataTable dt = ds.Tables[0];
-                if (dt.Rows.Count > 0)
-                {
-                    DataRow dr = dt.Rows[0];
-                    aid.Text = dr["id"].ToString();
-                    uid.Text = dr["uid"].ToString();
-                }
-                if (uid.Text != user_id.Text)
-                {
-                    Response.Redirect("login.aspx");
-                    msg.Visible = true;
-                    msg.Text = "wrong login credentials";
-                }
-                else
-                {
-                   
-                }
-            }
+            
 
         }
     }
     protected void btnDelete_Click(object sender, EventArgs e)
     {
+        if (Request.QueryString["id"] != null)
+        {
 
+            string data = "select * from investment_details where fid='" + Request.QueryString["id"] + "'";
+            SqlDataAdapter da = new SqlDataAdapter(data, db.con);
+            DataSet ds = new DataSet();
+            da.Fill(ds, "application");
+            DataTable dt = ds.Tables[0];
+            DataRow dr = dt.Rows[0];
+            aid.Text = dr["id"].ToString();
+
+        }
         InvestmentDetail app = new InvestmentDetail();
 
         app.deleteInvestment(Convert.ToInt32(aid.Text));

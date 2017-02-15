@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
     <div class="content-header">
-        <h1>Users</h1>
+        <h1>Admins</h1>
     </div>
     <div class="content">
         <asp:Label ID="msg" runat="server" Text="Label"></asp:Label>
@@ -34,13 +34,13 @@
                 string name = db.dr[1].ToString();
                 string email = db.dr[2].ToString();
                 string username = db.dr[3].ToString();
-                string address = db.dr[5].ToString();
-                string country = db.dr[6].ToString();
-                string state = db.dr[7].ToString();
-                string city = db.dr[8].ToString();
-                string contact = db.dr[9].ToString();
-                string occupation = db.dr[10].ToString();
-                string role = db.dr[11].ToString();
+                string address = db.dr[6].ToString();
+                string country = db.dr[7].ToString();
+                string state = db.dr[8].ToString();
+                string city = db.dr[9].ToString();
+                string contact = db.dr[10].ToString();
+                string occupation = db.dr[11].ToString();
+                string role = db.dr[12].ToString();
                 string status = db.dr["status"].ToString();     
              %>
             <tr>

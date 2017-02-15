@@ -10,6 +10,7 @@ using System.Drawing;
 
 public partial class admin_login : System.Web.UI.Page
 {
+    dbConnection db = new dbConnection();
     protected void Page_Load(object sender, EventArgs e)
     {
         msg.Visible = false;
@@ -24,10 +25,13 @@ public partial class admin_login : System.Web.UI.Page
 
             if (dt.Rows.Count > 0)
             {
-                Session["usernames"] = username;
-                Session["password"] = password;
-                Response.Redirect("index.aspx");
-
+                foreach (DataRow rows in dt.Rows)
+                {
+                    Session["usernames"] = username;
+                    Session["password"] = password;
+                    
+                    Response.Redirect("index.aspx");
+                }
             }
             else
             {

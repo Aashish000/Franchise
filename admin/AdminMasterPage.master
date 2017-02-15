@@ -38,7 +38,9 @@
             <ul>                         
                 <li> <a href="index.aspx">Dashboard </a> </li>
                 <li> <a href="categories.aspx">Categories</a> </li>
-                <li> <a href="user.aspx">Users</a> </li>
+                <li> <a href="user.aspx">Franchisers/Investors</a> </li>
+                <li> <a href="admin.aspx">Admins</a> </li>
+
             </ul>
            
         </div>

@@ -5,7 +5,7 @@
     <div class="application">
         <%
                        dbConnection db = new dbConnection();
-                      
+                       
                      if (Session["username"] != null)
                     {              
                          if(Session["role"]== "investor")    

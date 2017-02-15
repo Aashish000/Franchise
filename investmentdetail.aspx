@@ -48,7 +48,8 @@
                     db.closeConnection();
                      if (Request.QueryString["id"] != null)
                     {
-                          
+                       
+                         
                         string data = "select * from investment_details where fid='" + Request.QueryString["id"] + "'";
                         db.cmd = new System.Data.SqlClient.SqlCommand(data, db.con);
                         db.openConnection();
@@ -62,6 +63,7 @@
                         }
                         else 
                         {
+                             
                         while (db.dr.Read())
                         {
                             int appid = int.Parse(db.dr["id"].ToString());
@@ -70,8 +72,19 @@
                             string cash_required = db.dr[2].ToString();
                             string royalty = db.dr[3].ToString();
                             string training_assist = db.dr[4].ToString();
-                           
-                          %>
+                            aid.Text = db.dr["id"].ToString();
+                            uid.Text = db.dr["uid"].ToString();
+                            if (uid.Text != user_id.Text)
+                            {
+                                Response.Redirect("login.aspx");
+                                msg.Visible = true;
+                                msg.Text = "wrong login credentials";
+                            }
+                            else
+                            {
+
+                         
+              %>
                         
                         
               
@@ -106,6 +119,7 @@
                         }
                         db.closeConnection();
                         } 
+                        }
                         }
                         %>
             </table>

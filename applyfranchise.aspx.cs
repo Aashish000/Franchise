@@ -14,7 +14,7 @@ public partial class applyfranchise : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        //userid.Visible = false;
 
         dbConnection db = new dbConnection();
         if (!Page.IsPostBack)
@@ -35,7 +35,7 @@ public partial class applyfranchise : System.Web.UI.Page
                 franchiseid.Text = dr["id"].ToString();
                 
             }
-
+            
         }
     }
     protected void Button1_Click(object sender, EventArgs e)
