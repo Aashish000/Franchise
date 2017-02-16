@@ -35,6 +35,7 @@ public partial class application : System.Web.UI.Page
 
         if (!Page.IsPostBack)
         {
+            aid.Visible = false;
             no.Visible = false;
             if (Session["username"] != null)
             {

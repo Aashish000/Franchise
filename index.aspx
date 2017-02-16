@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="index.aspx.cs" Inherits="home" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+   
+
                <div class="banner">
                <div class="heading"> 
                     <h1> Find a Franchise... </h1>
@@ -11,7 +13,9 @@
                         <asp:Button ID="searchbtn" runat="server" Text="search" OnClick="search_Click"  />
                      </div>
                 </div>
-               <div class="categories">
+               <div class="categories" style="margin-top:87px;width:1233px;margin-left:60px">
+                <ul id="lightSlider">
+                    
                    <%
                        dbConnection db = new dbConnection();
                       
@@ -28,16 +32,19 @@
                                        
                                        
                     %>
-                   <ul>
-                        <li> <a href="viewfranchise.aspx?id=<%= id %>"><img class="categories-image" src="uploads/<%= image %> " height="80" width="80"/><br/><%= name %></a></li>
+                  
+                      
+                          <li> <a href="viewfranchise.aspx?id=<%= id %>"><img class="categories-image" src="uploads/<%= image %> " height="80" width="80"/><br/><%= name %></a></li>               
                       
                             
-                   </ul>
+                  
                    <%
                                     }
                                     db.closeConnection();
 
                    %>
+                            
+                   </ul>
                </div>
            </div>
     <div class="container">
@@ -48,7 +55,7 @@
             </div>
         <% 
          db.closeConnection();
-         string query1 = "select top 4 * from franchise";
+         string query1 = "select top 4 * from franchise ORDER BY id DESC"; 
          db.cmd = new System.Data.SqlClient.SqlCommand(query1, db.con);
          db.openConnection();
          db.dr = db.cmd.ExecuteReader();
@@ -113,5 +120,6 @@
         </div>
             
    </div>
+
 </asp:Content>
 

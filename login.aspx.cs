@@ -21,7 +21,7 @@ public partial class login : System.Web.UI.Page
         msg.Visible = true;
         //try{
                 UserLogin ul = new UserLogin();
-                DataTable dt = ul.CheckUsers(username.Text, password.Text,role.Text);
+                DataTable dt = ul.CheckUsers(username.Text, password.Text, role.Text);
                 if (dt.Rows.Count > 0)
                 {
                     foreach (DataRow rows in dt.Rows)

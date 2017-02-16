@@ -38,6 +38,7 @@
                         <input id="Reset1" type="reset" value="Reset" /></td>
                 </tr>
             </table>
+            <asp:HiddenField ID="hiddenimage" runat="server" />
         </div>
 </asp:Content>
 

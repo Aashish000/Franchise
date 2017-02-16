@@ -27,7 +27,13 @@ public partial class admin_editcategories : System.Web.UI.Page
                 DataTable dt = ds.Tables[0];
                 DataRow dr = dt.Rows[0];
                 name.Text = dr["name"].ToString();
-                lblimage.Text = dr["image"].ToString();
+                                
+                if (dr["image"] != null)
+                {
+                    string str = image.FileName;
+                    lblimage.Text = "<img id='id' src='../uploads/" + dr["image"] + "' width='100' height='100' />";
+                    hiddenimage.Value = dr["image"].ToString();
+                }
             }
         }
     }
@@ -45,8 +51,23 @@ public partial class admin_editcategories : System.Web.UI.Page
 
 
         Categories editcat = new Categories();
+        string franimage = "";
+        if (image.FileName != "")
+        {
+            FileInfo fl = new FileInfo("../uploads/" + hiddenimage.Value.ToString());
+            if (fl.Exists)
+            {
+                fl.Delete();
+            }
+            image.SaveAs(Server.MapPath("../uploads/" + image.FileName));
+            franimage = image.FileName;
+        }
+        else
+        {
+            franimage = hiddenimage.Value.ToString();
+        }
         int id = Convert.ToInt32(Request.QueryString["id"]);
-        editcat.editCategories(name.Text, image.FileName, id);
+        editcat.editCategories(name.Text, franimage, id);
         msg.Visible = true;
         msg.Text = "Categories Edited with sucess";
         msg.ForeColor = Color.Green;

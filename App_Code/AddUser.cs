@@ -58,21 +58,7 @@ public class AddUser
         return db.ds.Tables[0];
     }
 
-    public void createAdmin(string username, string password)
-    {
-
-        string query;
-        SqlCommand cmd;
-        query = "insert into admin(username,password) values(@username,@password)";
-        cmd = new SqlCommand(query, db.con);
-        cmd.Parameters.AddWithValue("@username", username);
-        cmd.Parameters.AddWithValue("@password", password);
-        //cmd.Parameters.AddWithValue("@role", role);
-
-        db.openConnection();
-        cmd.ExecuteNonQuery();
-        db.closeConnection();
-    }
+   
 
     
 }

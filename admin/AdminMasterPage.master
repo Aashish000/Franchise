@@ -19,7 +19,7 @@
         <div class="right">
             <ul>
                
-                <li><a href="#"> Welcome admin! </a></li>
+                <li><a href="#"> Welcome <%= Session["usernames"] %> </a></li>
     
                 <li><a href="logout.aspx"> Logout</a></li>
             </ul>
@@ -29,8 +29,8 @@
     <aside class="sidebar">
       <section class="side">
         <div class="user-pannel">
-            <h4> Admin Name </h4>
-            <p style="color:#add8e6"> Online </p>
+            <h4> <%= Session["usernames"] %> </h4>
+            <p style="color:#add8e6"> <%= Session["roles"] %> </p>
             <hr/>
         </div>
         <div class="navigation">

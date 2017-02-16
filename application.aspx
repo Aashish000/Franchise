@@ -77,7 +77,7 @@
                             string occupation = db.dr[6].ToString();
                             string education_qualification = db.dr[7].ToString();                  
                             string status = db.dr["status"].ToString();
-                            int fid = int.Parse(db.dr["fid"].ToString());
+                            string fid = db.dr["fid"].ToString();
 
 
                             %>
@@ -114,7 +114,10 @@
                        
                          <%} %>
                    
-                   </td>  
+                   </td>
+                        <td>
+                            <%= fid %>
+                            </td>  
                     <td>
                         
                          <asp:Button class="button" ID="Button1" runat="server" Text="Delete" OnClick="btnDelete_Click"  />

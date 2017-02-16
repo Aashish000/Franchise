@@ -21,17 +21,16 @@ public partial class admin_login : System.Web.UI.Page
         try
         {
             AdminLogin al = new AdminLogin();
-            DataTable dt = al.CheckAdmin(username.Text, password.Text);
+            db.dt = al.CheckAdmin(username.Text, password.Text);
 
-            if (dt.Rows.Count > 0)
+            if (db.dt.Rows.Count > 0)
             {
-                foreach (DataRow rows in dt.Rows)
-                {
-                    Session["usernames"] = username;
-                    Session["password"] = password;
-                    
+               
+                    Session["usernames"] = username.Text;
+                    Session["password"] = password.Text;
+                    Session["roles"] = db.dt.Rows[0]["role"].ToString();
                     Response.Redirect("index.aspx");
-                }
+                
             }
             else
             {

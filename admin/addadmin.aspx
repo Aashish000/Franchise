@@ -36,17 +36,17 @@
                     </td>
                 </tr>
                
-               <%--  <tr>
+                <tr>
                     <td class="auto-style7">Role</td>
                     <td class="auto-style8">
-                         <asp:DropDownList class="TextBox" ID="role" runat="server">
-                             <asp:ListItem  Value="franchiser">SuperAdmin</asp:ListItem>
+                         <asp:DropDownList class="TextBox" ID="roles" runat="server">
+                             <asp:ListItem  Value="superadmin">SuperAdmin</asp:ListItem>
                              <asp:ListItem  Value="subadmin">SubAdmin</asp:ListItem>
                           </asp:DropDownList>
                     </td>
                     <td class="auto-style9">
                         &nbsp;</td>
-                </tr>--%>
+                </tr>
                
                  <tr>
                     <td class="auto-style2" colspan="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit" />

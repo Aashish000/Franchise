@@ -33,8 +33,8 @@ public partial class admin_addadmin : System.Web.UI.Page
 
             try
             {
-                AddUser register = new AddUser();
-                register.createAdmin(username.Text, password.Text);
+                AdminLogin register = new AdminLogin();
+                register.createAdmin(username.Text, password.Text,roles.Text);
                 msg.Visible = true;
                 msg.Text = "new User added";
                 msg.ForeColor = Color.Green;

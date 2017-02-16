@@ -59,5 +59,13 @@ public class Application
         db.da.Fill(db.ds, "application");
         return db.ds.Tables[0];
     }
-  
+
+    public DataTable showFranchise()
+    {
+        string query = "select * from franchise";
+        db.da = new SqlDataAdapter(query, db.con);
+        db.ds = new DataSet();
+        db.da.Fill(db.ds, "application");
+        return db.ds.Tables[0];
+    }
 }

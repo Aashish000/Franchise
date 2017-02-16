@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
 using System.Data;
+using System.Text;
+using System.Security.Cryptography;
 
 /// <summary>
 /// Summary description for UserLogin
@@ -29,6 +31,13 @@ public class UserLogin
         da.Fill(ds, "users");
         return ds.Tables[0];
     }
-
+    public static string encrypt(string password)
+    {
+        UnicodeEncoding uEncode = new UnicodeEncoding();
+        byte[] bytPassword = uEncode.GetBytes(password);
+        SHA512Managed sha = new SHA512Managed();
+        byte[] hash = sha.ComputeHash(bytPassword);
+        return Convert.ToBase64String(hash);
+    }
    
 }
