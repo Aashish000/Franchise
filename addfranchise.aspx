@@ -61,7 +61,7 @@
             <tr>
                 <td class="auto-style12">Description</td>
                 <td class="auto-style10">
-                    <asp:TextBox ID="description" runat="server" Width="195px" TextMode="MultiLine"></asp:TextBox>
+                    <asp:TextBox ID="description" runat="server" Width="195px" TextMode="MultiLine" MaxLength="255"></asp:TextBox>
                 </td>
                 <td class="auto-style9">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="description" ErrorMessage="Description required" ForeColor="Red"></asp:RequiredFieldValidator>
@@ -89,11 +89,11 @@
             <tr>
                 <td class="auto-style13">Established Date</td>
                 <td class="auto-style3">
-                    <asp:TextBox ID="established_date" runat="server" Width="195px"></asp:TextBox>
+                    <asp:TextBox ID="established_date" runat="server" Width="195px" TextMode="Date"></asp:TextBox>
                 </td>
                 <td>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="established_date" ErrorMessage="Established date required" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
-                &nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="established_date" Display="Dynamic" ErrorMessage="Invalid Date Format(dd/mm/yy)" ForeColor="Red" ValidationExpression="^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$"></asp:RegularExpressionValidator>
+<%--                &nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="established_date" Display="Dynamic" ErrorMessage="Invalid Date Format(dd/mm/yy)" ForeColor="Red" ValidationExpression="^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$"></asp:RegularExpressionValidator>--%>
                 </td>
             </tr>
             <tr>

@@ -12,8 +12,13 @@ using System.Data.SqlClient;
 public partial class application : System.Web.UI.Page
 {
     dbConnection db = new dbConnection();
+    
     protected void Page_Load(object sender, EventArgs e)
     {
+        user_id.Visible = false;
+        uid.Visible = false;
+        aid.Visible = false;
+        
         if (Request.QueryString["franid"] != null)
         {
             string query = "update application set status='approved' where fid='" + Request.QueryString["franid"] + "'";
@@ -35,7 +40,7 @@ public partial class application : System.Web.UI.Page
 
         if (!Page.IsPostBack)
         {
-            aid.Visible = false;
+            //aid.Visible = false;
             no.Visible = false;
             if (Session["username"] != null)
             {
@@ -50,6 +55,7 @@ public partial class application : System.Web.UI.Page
                 }
                 db.closeConnection();
             }
+            
             if (Request.QueryString["id"] != null)
             {
 

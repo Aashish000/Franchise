@@ -14,6 +14,26 @@ public class Categories
     dbConnection db = new dbConnection();
     string query;
     SqlCommand cmd;
+    public string catname;
+
+    public Categories()
+    { 
+    
+    }
+    public Categories(int id)
+    {
+        string data = "select * from categories where id=" + id;
+        SqlDataAdapter da = new SqlDataAdapter(data, db.con);
+        DataSet ds = new DataSet();
+        da.Fill(ds, "franchise");
+        DataTable dt = ds.Tables[0];
+        if (dt.Rows.Count > 0)
+        {
+            DataRow dr = dt.Rows[0];
+            catname = dr["name"].ToString();
+
+        }
+    }
 
     public void addCategories(string name, string image)
     {
@@ -43,4 +63,6 @@ public class Categories
         da.Fill(ds, "categories");
         return ds.Tables[0];
     }
+
+    
 }

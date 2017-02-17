@@ -46,6 +46,8 @@
         db.closeConnection();
         } %>
           <div class="user-content">
+                          <asp:label ID="msg" runat="server"></asp:label>
+
             <table class="franchiseinfo">
                 <tr>
                     <th>S.NO</th>
@@ -57,7 +59,8 @@
                     <th>Occupation</th>
                     <th>Education Qualification</th>
                     <th>Status</th>
-
+                    <th> Action </th>
+                    
                 </tr>
                 <%
                     
@@ -80,8 +83,7 @@
                         {
                         while (db.dr.Read())
                         {
-                            int appid = int.Parse(db.dr["id"].ToString());
-                            aid.Text = appid.ToString();
+                            int aid = int.Parse(db.dr["id"].ToString());
                             string name = db.dr[1].ToString();
                             string email = db.dr[2].ToString();
                             string country = db.dr[3].ToString();
@@ -115,7 +117,11 @@
                     <td><%= occupation %></td>
                     <td><%= education_qualification %></td>
                     <td><%= status %></td>
-
+                   
+                     <td>
+                        
+                         <asp:Button class="button" ID="Button1" runat="server" Text="Delete" OnClick="btnDelete_Click"  />
+                    </td>
          
 
        
@@ -130,6 +136,12 @@
                 </table>
                </div>
         </div>
- 
+  <%--<td> <%
+                            int franid = fid;
+                            AddFranchise ff = new AddFranchise(franid);
+                              
+                     %>
+                        <%= ff.franname %>
+                    </td>--%>
 </asp:Content>
 

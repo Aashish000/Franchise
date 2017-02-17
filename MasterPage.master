@@ -45,7 +45,7 @@
                                 %>
                       </div>
                   </li>
-                  <li><a href="#">About</a></li>
+                  <li><a href="aboutus.aspx">About</a></li>
                   <li><a href="#">Contact</a></li>
                 </ul>
            </div>
@@ -123,7 +123,7 @@
                 </h5>
                 
                 
-            </div>s
+            </div>
           <div class="footer-right">            
                 <ul>
                   <li><a href="index.aspx">Home</a></li>

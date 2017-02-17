@@ -67,23 +67,22 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style13">Logo</td>
-                <td class="auto-style3">
+                <td class="auto-style11">Logo</td>
+                <td class="auto-style8">
                     <asp:FileUpload ID="logo" runat="server" />
                     <asp:Image ID="logo1" runat="server" />
                     <asp:Label ID="lbllogo" runat="server" Text="Label"></asp:Label>
                 </td>
-                <td>
-                    &nbsp;</td>
+                <td class="auto-style7">
+                    </td>
             </tr>
             <tr>
                 <td class="auto-style13">Established Date</td>
                 <td class="auto-style3">
-                    <asp:TextBox ID="established_date" runat="server" Width="195px"></asp:TextBox>
+                    <asp:TextBox ID="established_date" runat="server" Width="195px" TextMode="Date"></asp:TextBox>
                 </td>
                 <td>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="established_date" ErrorMessage="Established date required" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
-                &nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="established_date" Display="Dynamic" ErrorMessage="Invalid Date Format(dd/mm/yy)" ForeColor="Red" ValidationExpression="^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>

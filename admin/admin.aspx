@@ -18,11 +18,18 @@
             <tr>
                 
                 
-                <th> </th> 
+          
                 <th>Username</th>
+                <%if( Session["roles"].ToString() == "superadmin")
+                {
+                     %>
                 <th>Password</th>
-               <%-- <th>Role</th>
-                <th>Status</th> --%>
+                <th>Action</th>
+               <%-- <th>Action</th>--%>
+                 <%} %>
+                <th>Role</th>
+                
+               <%-- <th>Status</th> --%>
 
             </tr>
              <%
@@ -43,13 +50,18 @@
              %>
          
             <tr>
-              <%if( Session["roles"].ToString() == "superadmin")
+             
+                <td><%= username %></td>
+                
+                 <%if( Session["roles"].ToString() == "superadmin")
                 {
                      %>
-                <td><%= username %></td>
                 <td><%=password %></td>
-                <td><%= role %></td>
+                <td>
+                <a href="?id=<%=id %>" style="color:blue">Delete</a>
+                </td>
                 <%} %>
+                <td><%= role %></td>
                 <%--<td><%= status %></td>--%>
           
                <%-- <td>
@@ -68,7 +80,9 @@
                     </a>
                     <%} %>
                 </td>--%>
-
+                      <%--<td>
+                <a href="?id=<%=id %>" style="color:blue">Delete</a>
+                </td>--%>
             </tr>
             <%
             }

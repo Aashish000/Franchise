@@ -22,6 +22,25 @@ public partial class applyfranchise : System.Web.UI.Page
             msg.Visible = false;
             franchise_id.Visible = false;
             franchiseid.Visible = false;
+            userid.Visible = false;
+            if (Session["username"] != null)
+            {
+                if (Session["role"] == "investor")
+                {
+                    string query = "select* from users where username ='" + Session["username"] + "'";
+                            db.cmd = new System.Data.SqlClient.SqlCommand(query, db.con);
+                            db.openConnection();
+                            db.dr = db.cmd.ExecuteReader();
+                            while (db.dr.Read())
+                            {
+                                //int id = Convert.ToInt32(db.dr[0].ToString());
+                                userid.Text = db.dr["id"].ToString();
+
+                            }
+                            db.closeConnection();
+                }
+            }
+
             if (Request.QueryString["id"] != null)
             {
 

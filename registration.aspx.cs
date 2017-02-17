@@ -21,19 +21,19 @@ public partial class registration: System.Web.UI.Page
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
-        string data = "select username from users where username='"+username.Text+"'";
-        db.cmd = new SqlCommand(data, db.con);
-        db.openConnection();
-        db.dr = db.cmd.ExecuteReader();
-        if (db.dr.Read())
-        {
+        //string data = "select username from users where username='"+username.Text+"'";
+        //db.cmd = new SqlCommand(data, db.con);
+        //db.openConnection();
+        //db.dr = db.cmd.ExecuteReader();
+        //if (db.dr.Read())
+        //{
 
-            msg.Visible = true;
-            msg.Text = "username already exists";
-            msg.ForeColor = Color.Red;
-        }
-        else 
-        {
+        //    msg.Visible = true;
+        //    msg.Text = "username already exists";
+        //    msg.ForeColor = Color.Red;
+        //}
+        //else 
+        //{
 
             try
             {
@@ -49,7 +49,7 @@ public partial class registration: System.Web.UI.Page
                 msg.Text = ex.Message;
                 msg.ForeColor = Color.Red;
             }
-        }
+        //}
     }
        
 }

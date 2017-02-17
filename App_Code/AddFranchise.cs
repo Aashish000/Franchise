@@ -14,6 +14,27 @@ public class AddFranchise
     string query;
     SqlCommand cmd;
 
+      public string franname;
+      public AddFranchise()
+      { 
+      }
+
+    public AddFranchise(int id)
+    {
+        string data = "select * from franchise where id=" + id;
+        SqlDataAdapter da = new SqlDataAdapter(data, db.con);
+        DataSet ds = new DataSet();
+        da.Fill(ds, "franchise");
+        DataTable dt = ds.Tables[0];
+        if (dt.Rows.Count > 0)
+        {
+            DataRow dr = dt.Rows[0];
+            franname = dr["franchise_name"].ToString();
+        
+        }
+    }
+
+
     public void addFranchises(string franchise_name, string description, string email, string logo, string established_date, string started_date, string concept, int investment_required, int no_of_units, int uid, int catid)
     {
         

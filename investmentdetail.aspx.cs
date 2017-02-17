@@ -16,6 +16,7 @@ public partial class investmentdetail : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
+            aid.Visible = false;
             no.Visible = false;
             user_id.Visible = false;
             uid.Visible = false;

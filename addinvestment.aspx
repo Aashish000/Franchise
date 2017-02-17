@@ -113,7 +113,7 @@
       else
       {
        %>
-    <h2>Investment detail already added for this franchise.</h2>
+    <h2>Investment detail added for this franchise.</h2>
     <%                  
       }
       }

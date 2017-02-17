@@ -67,7 +67,7 @@ public partial class admin_editcategories : System.Web.UI.Page
             franimage = hiddenimage.Value.ToString();
         }
         int id = Convert.ToInt32(Request.QueryString["id"]);
-        editcat.editCategories(name.Text, franimage, id);
+        editcat.editCategories(name.Text,image.FileName, id);
         msg.Visible = true;
         msg.Text = "Categories Edited with sucess";
         msg.ForeColor = Color.Green;

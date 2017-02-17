@@ -9,7 +9,8 @@
                      if (Session["username"] != null)
                     {              
                          if(Session["role"]== "investor")    
-                         {      
+                         {
+                            
                             string query = "select* from users where username ='" + Session["username"] + "'";
                             db.cmd = new System.Data.SqlClient.SqlCommand(query, db.con);
                             db.openConnection();
@@ -17,7 +18,7 @@
                                 while (db.dr.Read())
                                             {
                                                int id = Convert.ToInt32(db.dr[0].ToString());
-                                                userid.Text = db.dr["id"].ToString();
+                                                //userid.Text = db.dr["id"].ToString();
                                                 name.Text = db.dr["name"].ToString();
                                                 email.Text = db.dr["email"].ToString();
                                                 country.Text = db.dr["country"].ToString();
@@ -94,7 +95,7 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
+                    <asp:Button ID="Button1" runat="server" Text="Apply" OnClick="Button1_Click" />
                 </td>
             </tr>
             </table>

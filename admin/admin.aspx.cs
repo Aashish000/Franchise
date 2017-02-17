@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Data.SqlClient;
 using System.Data;
 using System.Web.UI.WebControls;
+using System.Drawing;
 
 public partial class admin_admin : System.Web.UI.Page
 {
@@ -13,26 +14,22 @@ public partial class admin_admin : System.Web.UI.Page
     {
         msg.Visible = false;
         dbConnection db = new dbConnection();
-        if (Request.QueryString["id"] != null)
-        {
-            string query1 = "UPDATE admin set status= 'deactivate' where id ='" + Request.QueryString["id"] + "'";
-            SqlCommand cmd = new SqlCommand(query1, db.con);
-            db.openConnection();
-            cmd.ExecuteNonQuery();
-            db.closeConnection();
-            msg.Visible = true;
-            msg.Text = "account deactivated";
-        }
-        if (Request.QueryString["uid"] != null)
-        {
-            string query1 = "UPDATE admin set status = 'active' where id ='" + Request.QueryString["uid"] + "'";
-            SqlCommand cmd = new SqlCommand(query1, db.con);
-            db.openConnection();
-            cmd.ExecuteNonQuery();
-            db.closeConnection();
-            msg.Visible = true;
-            msg.Text = "account activated";
-        }
+       
+      
+
+
+
+       
 
     }
 }
+//if request query string garne 
+//string query ma query falne
+//sqlcommand cmd ma query store garne
+//db.openConnection();
+//    cmd.ExecuteNonQuery();
+//    msg.Visible = true;
+//    msg.Text = "Record Deleted";
+//    msg.ForeColor = Color.Green;
+//    db.closeConnection();
+//}

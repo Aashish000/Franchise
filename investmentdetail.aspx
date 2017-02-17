@@ -40,6 +40,7 @@
                     <th>Cash Required</th>
                     <th>Royalty</th>
                     <th>Training Assist</th>
+                    <th>Franchise Name </th>
                     <asp:Label ID="no" runat="server" Text="Label"></asp:Label>
 
                 </tr>
@@ -74,6 +75,7 @@
                             string training_assist = db.dr[4].ToString();
                             aid.Text = db.dr["id"].ToString();
                             uid.Text = db.dr["uid"].ToString();
+                            int fid = int.Parse(db.dr["fid"].ToString());
                             if (uid.Text != user_id.Text)
                             {
                                 Response.Redirect("login.aspx");
@@ -100,7 +102,15 @@
                     <td><%= cash_required %></td>
                     <td><%= royalty %></td>
                     <td><%= training_assist %></td>
-                    
+                    <td>
+                        <%
+                                int franid = fid;
+                                AddFranchise ff = new AddFranchise(franid);
+                                
+
+                               
+                                 %>
+                            <%= ff.franname %>                    </td>
                     <td>
                         
                        </td>

@@ -290,6 +290,7 @@ li {
     width: 1117px;
     background: white;
     margin-top: 65px;
+    min-height:300px;
 }
 .franchiseinfo {
     margin-left:100px;

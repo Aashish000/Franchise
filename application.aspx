@@ -7,6 +7,7 @@
       </div>
              <div class="user-navigation">
                   <%
+                      if(Session["username"]!= null){
                       if (Session["role"] == "franchiser")
                       {
                           dbConnection db = new dbConnection();
@@ -77,7 +78,7 @@
                             string occupation = db.dr[6].ToString();
                             string education_qualification = db.dr[7].ToString();                  
                             string status = db.dr["status"].ToString();
-                            string fid = db.dr["fid"].ToString();
+                            int fid = int.Parse(db.dr["fid"].ToString());
 
 
                             %>
@@ -89,7 +90,7 @@
                        
                         <td><%= count %>
                    
-                            <asp:Label ID="aid" runat="server" Text="Label"></asp:Label>
+                            <asp:TextBox ID="aid" runat="server"></asp:TextBox>  
                             
                 
                          
@@ -116,7 +117,14 @@
                    
                    </td>
                         <td>
-                            <%= fid %>
+                            <%
+                                int franid = fid;
+                                AddFranchise ff = new AddFranchise(franid);
+                                
+
+                               
+                                 %>
+                            <%= ff.franname %>
                             </td>  
                     <td>
                         
@@ -133,6 +141,10 @@
                         db.closeConnection();
                         } 
                         }
+                        }
+                        else{
+                            Response.Redirect("login.aspx");
+                      }
                         %>
             </table>
 
